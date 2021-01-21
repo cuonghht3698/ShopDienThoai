@@ -85,6 +85,7 @@
     <Compile Include="Public\getData.cs" />
     <Compile Include="Public\Ham.cs" />
     <Compile Include="Public\LuuThongTin.cs" />
+    <Compile Include="Public\SanPhamService.cs" />
     <EmbeddedResource Include="GiaoDien\KhachHang\TrangChuKhachHang.resx">
       <DependentUpon>TrangChuKhachHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +127,7 @@
   <ItemGroup>
     <Content Include="Anh\anhlogin.jpg" />
     <Content Include="Anh\logo-hinh-tron-saokim.png" />
+    <Content Include="Public\TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
