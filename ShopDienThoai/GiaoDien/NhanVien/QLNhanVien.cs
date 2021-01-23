@@ -1,4 +1,5 @@
-﻿using ShopQuanAo.Public;
+﻿using ShopQuanAo.GiaoDien.User;
+using ShopQuanAo.Public;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -154,6 +155,12 @@ namespace ShopDienThoai.GiaoDien.NhanVien
         {
             sTrangThai = cbTrangThai.SelectedIndex == 1 ? true : false;
             getDataNhanVien();
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            DangKy dk = new DangKy(true);
+            dk.ShowDialog();
         }
     }
 }

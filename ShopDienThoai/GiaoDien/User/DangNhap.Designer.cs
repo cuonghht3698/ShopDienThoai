@@ -40,6 +40,8 @@ namespace ShopQuanAo.GiaoDien.User
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbLoginFailed = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,6 +150,26 @@ namespace ShopQuanAo.GiaoDien.User
             this.lbLoginFailed.Size = new System.Drawing.Size(0, 19);
             this.lbLoginFailed.TabIndex = 44;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(123, 379);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(52, 38);
+            this.button1.TabIndex = 45;
+            this.button1.Text = "ADMIN";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(123, 423);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(52, 35);
+            this.button2.TabIndex = 46;
+            this.button2.Text = "KH";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // DangNhap
             // 
             this.AcceptButton = this.btnDangNhap;
@@ -156,6 +178,8 @@ namespace ShopQuanAo.GiaoDien.User
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(769, 553);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lbLoginFailed);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
@@ -190,5 +214,7 @@ namespace ShopQuanAo.GiaoDien.User
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbLoginFailed;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

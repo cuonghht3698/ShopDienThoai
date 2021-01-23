@@ -462,6 +462,7 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.iconButton4.TabIndex = 3;
             this.iconButton4.Text = "Thoát";
             this.iconButton4.UseVisualStyleBackColor = true;
+            this.iconButton4.Click += new System.EventHandler(this.iconButton4_Click);
             // 
             // lbTen
             // 

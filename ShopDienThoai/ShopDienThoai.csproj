@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GiaoDien\KhachHang\SanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\KhachHang\SanPham.Designer.cs">
+      <DependentUpon>SanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="GiaoDien\KhachHang\TrangChuKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     <Compile Include="Public\Ham.cs" />
     <Compile Include="Public\LuuThongTin.cs" />
     <Compile Include="Public\SanPhamService.cs" />
+    <EmbeddedResource Include="GiaoDien\KhachHang\SanPham.resx">
+      <DependentUpon>SanPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GiaoDien\KhachHang\TrangChuKhachHang.resx">
       <DependentUpon>TrangChuKhachHang.cs</DependentUpon>
     </EmbeddedResource>

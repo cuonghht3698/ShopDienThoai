@@ -1,4 +1,5 @@
 ﻿using ShopDienThoai.GiaoDien.NhanVien;
+using ShopQuanAo.GiaoDien.User;
 using ShopQuanAo.Public;
 using System;
 using System.Collections.Generic;
@@ -158,6 +159,13 @@ namespace ShopQuanAo.GiaoDien.NhanVien
         private void iconButton14_Click(object sender, EventArgs e)
         {
             OpenForm(new QLKhachHang());
+        }
+
+        private void iconButton4_Click(object sender, EventArgs e)
+        { 
+            this.Visible = false;
+            DangNhap dk = new DangNhap();
+            dk.ShowDialog();
         }
     }
 }

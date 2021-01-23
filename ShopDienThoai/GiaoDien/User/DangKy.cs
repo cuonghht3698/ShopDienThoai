@@ -14,25 +14,47 @@ namespace ShopQuanAo.GiaoDien.User
     public partial class DangKy : Form
     {
         private getData conn;
+        private int quyen;
         public DangKy()
         {
             InitializeComponent();
             conn = new getData();
+            quyen = 3;
+            lbQuyen.Visible = false;
+            cbQuyen.Visible = false;
         }
+        public DangKy(bool checkAdmin)
+        {
+            InitializeComponent();
+            conn = new getData();
 
+        }
         private void DangKy_Load(object sender, EventArgs e)
         {
             cbGioiTinh.SelectedIndex = 0;
+            cbQuyen.SelectedIndex = 0;
             dateNgaySinh.CustomFormat = "dd/MM/yyyy";
+            getQuyen();
         }
 
+        private void getQuyen()
+        {
+            var data = conn.getDataTable("select (convert(varchar,id) + ' -' + ten) as 'quyen' from HTRole");
+            if (data.Rows.Count > 0)
+            {
+                foreach (DataRow item in data.Rows)
+                {
+                    cbQuyen.Items.Add(item[0].ToString());
 
+                }
+            }
+        }
         private void TaiTaiKhoan()
         {
             try
             {
                 string ten, ngaysinh, sdt, quequan, username, password;
-                int quyen;
+               
                 bool active = true;
                 bool gioitinh;
                 ten = txtHoTen.Text;
@@ -42,7 +64,7 @@ namespace ShopQuanAo.GiaoDien.User
                 quequan = txtDiaChi.Text;
                 username = txtTaiKhoan.Text;
                 password = Ham.EncodePassword(txtMatKhau.Text);
-                quyen = 3;
+
                 if (!String.IsNullOrEmpty(txtHoTen.Text) && !String.IsNullOrEmpty(txtMatKhau.Text) && !String.IsNullOrEmpty(txtTaiKhoan.Text))
                 {
                     if (txtMatKhau2.Text == txtMatKhau.Text)
@@ -92,6 +114,14 @@ namespace ShopQuanAo.GiaoDien.User
         private void btnDangKy_Click(object sender, EventArgs e)
         {
             TaiTaiKhoan();
+        }
+
+        private void cbQuyen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (quyen != 3)
+            {
+                quyen = Ham.GetIdFromCombobox(cbQuyen.SelectedItem.ToString());
+            }
         }
     }
 }

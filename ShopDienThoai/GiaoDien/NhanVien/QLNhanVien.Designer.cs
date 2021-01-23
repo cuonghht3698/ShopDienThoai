@@ -449,6 +449,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.iconButton1.TabIndex = 0;
             this.iconButton1.Text = "Thêm nhân viên";
             this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // panel3
             // 

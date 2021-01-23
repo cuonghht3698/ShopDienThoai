@@ -77,5 +77,18 @@ namespace ShopQuanAo.GiaoDien.User
                 lbLoginFailed.Text = "Tài khoản hoặc mật khẩu không đúng !";
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtTaiKhoan.Text = "admin";
+            txtMatKhau.Text = "admin";
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            txtTaiKhoan.Text = "cuong";
+            txtMatKhau.Text = "cuong";
+        }
     }
 }

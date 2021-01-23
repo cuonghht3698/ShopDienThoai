@@ -99,6 +99,12 @@ namespace ShopDienThoai.GiaoDien.NhanVien
 
                 }
             }
+            else
+            {
+                picAnh1.Image = null;
+                picAnh2.Image = null;
+
+            }
 
         }
 
