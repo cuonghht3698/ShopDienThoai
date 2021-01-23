@@ -46,9 +46,9 @@ namespace ShopQuanAo.GiaoDien.User
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(189, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(202, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(125, 101);
+            this.pictureBox1.Size = new System.Drawing.Size(112, 101);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 43;
             this.pictureBox1.TabStop = false;
@@ -59,7 +59,7 @@ namespace ShopQuanAo.GiaoDien.User
             this.label3.ForeColor = System.Drawing.Color.Fuchsia;
             this.label3.Location = new System.Drawing.Point(320, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(242, 101);
+            this.label3.Size = new System.Drawing.Size(249, 101);
             this.label3.TabIndex = 39;
             this.label3.Text = "Đăng nhập";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -93,7 +93,7 @@ namespace ShopQuanAo.GiaoDien.User
             this.btnDangNhap.Font = new System.Drawing.Font("MV Boli", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangNhap.Location = new System.Drawing.Point(202, 438);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(360, 56);
+            this.btnDangNhap.Size = new System.Drawing.Size(362, 56);
             this.btnDangNhap.TabIndex = 42;
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.UseVisualStyleBackColor = true;
@@ -155,7 +155,7 @@ namespace ShopQuanAo.GiaoDien.User
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(767, 553);
+            this.ClientSize = new System.Drawing.Size(769, 553);
             this.Controls.Add(this.lbLoginFailed);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);

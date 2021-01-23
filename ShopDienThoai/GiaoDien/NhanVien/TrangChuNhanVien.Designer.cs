@@ -38,11 +38,16 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.iconButton14 = new FontAwesome.Sharp.IconButton();
+            this.iconButton15 = new FontAwesome.Sharp.IconButton();
+            this.iconButton16 = new FontAwesome.Sharp.IconButton();
             this.panelDropDown3 = new System.Windows.Forms.Panel();
             this.iconButton11 = new FontAwesome.Sharp.IconButton();
             this.iconButton12 = new FontAwesome.Sharp.IconButton();
             this.iconButton13 = new FontAwesome.Sharp.IconButton();
             this.panelDropDown2 = new System.Windows.Forms.Panel();
+            this.iconButton17 = new FontAwesome.Sharp.IconButton();
             this.iconButton8 = new FontAwesome.Sharp.IconButton();
             this.iconButton9 = new FontAwesome.Sharp.IconButton();
             this.iconButton10 = new FontAwesome.Sharp.IconButton();
@@ -59,6 +64,7 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panelDropDown3.SuspendLayout();
             this.panelDropDown2.SuspendLayout();
             this.panelDropDown1.SuspendLayout();
@@ -154,7 +160,9 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Maroon;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.iconButton16);
             this.panel2.Controls.Add(this.panelDropDown3);
             this.panel2.Controls.Add(this.iconButton13);
             this.panel2.Controls.Add(this.panelDropDown2);
@@ -167,6 +175,67 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(189, 679);
             this.panel2.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.iconButton14);
+            this.panel3.Controls.Add(this.iconButton15);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 622);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(189, 112);
+            this.panel3.TabIndex = 8;
+            // 
+            // iconButton14
+            // 
+            this.iconButton14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.iconButton14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton14.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton14.ForeColor = System.Drawing.Color.Red;
+            this.iconButton14.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton14.IconColor = System.Drawing.Color.Black;
+            this.iconButton14.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton14.Location = new System.Drawing.Point(0, 36);
+            this.iconButton14.Name = "iconButton14";
+            this.iconButton14.Size = new System.Drawing.Size(189, 36);
+            this.iconButton14.TabIndex = 3;
+            this.iconButton14.Text = "Quản lý khách hàng";
+            this.iconButton14.UseVisualStyleBackColor = false;
+            this.iconButton14.Click += new System.EventHandler(this.iconButton14_Click);
+            // 
+            // iconButton15
+            // 
+            this.iconButton15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.iconButton15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton15.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton15.ForeColor = System.Drawing.Color.Red;
+            this.iconButton15.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton15.IconColor = System.Drawing.Color.Black;
+            this.iconButton15.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton15.Location = new System.Drawing.Point(0, 0);
+            this.iconButton15.Name = "iconButton15";
+            this.iconButton15.Size = new System.Drawing.Size(189, 36);
+            this.iconButton15.TabIndex = 2;
+            this.iconButton15.Text = "Quản lý nhân viên";
+            this.iconButton15.UseVisualStyleBackColor = false;
+            this.iconButton15.Click += new System.EventHandler(this.iconButton15_Click);
+            // 
+            // iconButton16
+            // 
+            this.iconButton16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.iconButton16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton16.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.iconButton16.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton16.IconColor = System.Drawing.Color.Black;
+            this.iconButton16.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton16.Location = new System.Drawing.Point(0, 573);
+            this.iconButton16.Name = "iconButton16";
+            this.iconButton16.Size = new System.Drawing.Size(189, 49);
+            this.iconButton16.TabIndex = 7;
+            this.iconButton16.Text = "Nhân sự";
+            this.iconButton16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton16.UseVisualStyleBackColor = false;
             // 
             // panelDropDown3
             // 
@@ -223,13 +292,14 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.iconButton13.Name = "iconButton13";
             this.iconButton13.Size = new System.Drawing.Size(189, 49);
             this.iconButton13.TabIndex = 5;
-            this.iconButton13.Text = "Quản lý điện thoại";
+            this.iconButton13.Text = "Quản kho";
             this.iconButton13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton13.UseVisualStyleBackColor = false;
             this.iconButton13.Click += new System.EventHandler(this.iconButton13_Click);
             // 
             // panelDropDown2
             // 
+            this.panelDropDown2.Controls.Add(this.iconButton17);
             this.panelDropDown2.Controls.Add(this.iconButton8);
             this.panelDropDown2.Controls.Add(this.iconButton9);
             this.panelDropDown2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -237,6 +307,23 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.panelDropDown2.Name = "panelDropDown2";
             this.panelDropDown2.Size = new System.Drawing.Size(189, 112);
             this.panelDropDown2.TabIndex = 4;
+            // 
+            // iconButton17
+            // 
+            this.iconButton17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.iconButton17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton17.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton17.ForeColor = System.Drawing.Color.Red;
+            this.iconButton17.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton17.IconColor = System.Drawing.Color.Black;
+            this.iconButton17.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton17.Location = new System.Drawing.Point(0, 72);
+            this.iconButton17.Name = "iconButton17";
+            this.iconButton17.Size = new System.Drawing.Size(189, 36);
+            this.iconButton17.TabIndex = 4;
+            this.iconButton17.Text = "Loại sản phẩm";
+            this.iconButton17.UseVisualStyleBackColor = false;
+            this.iconButton17.Click += new System.EventHandler(this.iconButton17_Click);
             // 
             // iconButton8
             // 
@@ -251,8 +338,9 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.iconButton8.Name = "iconButton8";
             this.iconButton8.Size = new System.Drawing.Size(189, 36);
             this.iconButton8.TabIndex = 3;
-            this.iconButton8.Text = "Quản lý điện thoại";
+            this.iconButton8.Text = "Nhà cung cấp";
             this.iconButton8.UseVisualStyleBackColor = false;
+            this.iconButton8.Click += new System.EventHandler(this.iconButton8_Click);
             // 
             // iconButton9
             // 
@@ -267,8 +355,9 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.iconButton9.Name = "iconButton9";
             this.iconButton9.Size = new System.Drawing.Size(189, 36);
             this.iconButton9.TabIndex = 2;
-            this.iconButton9.Text = "Quản lý điện thoại";
+            this.iconButton9.Text = "Kho";
             this.iconButton9.UseVisualStyleBackColor = false;
+            this.iconButton9.Click += new System.EventHandler(this.iconButton9_Click);
             // 
             // iconButton10
             // 
@@ -283,7 +372,7 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.iconButton10.Name = "iconButton10";
             this.iconButton10.Size = new System.Drawing.Size(189, 49);
             this.iconButton10.TabIndex = 3;
-            this.iconButton10.Text = "Quản lý điện thoại";
+            this.iconButton10.Text = "Hạng mục";
             this.iconButton10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton10.UseVisualStyleBackColor = false;
             this.iconButton10.Click += new System.EventHandler(this.iconButton10_Click);
@@ -329,6 +418,7 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.iconButton6.TabIndex = 2;
             this.iconButton6.Text = "Quản lý điện thoại";
             this.iconButton6.UseVisualStyleBackColor = false;
+            this.iconButton6.Click += new System.EventHandler(this.iconButton6_Click);
             // 
             // iconButton5
             // 
@@ -433,6 +523,7 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.panelDropDown3.ResumeLayout(false);
             this.panelDropDown2.ResumeLayout(false);
             this.panelDropDown1.ResumeLayout(false);
@@ -471,5 +562,10 @@ namespace ShopQuanAo.GiaoDien.NhanVien
         private FontAwesome.Sharp.IconButton iconButton8;
         private FontAwesome.Sharp.IconButton iconButton9;
         private FontAwesome.Sharp.IconButton iconButton10;
+        private System.Windows.Forms.Panel panel3;
+        private FontAwesome.Sharp.IconButton iconButton14;
+        private FontAwesome.Sharp.IconButton iconButton15;
+        private FontAwesome.Sharp.IconButton iconButton16;
+        private FontAwesome.Sharp.IconButton iconButton17;
     }
 }

@@ -87,7 +87,7 @@ namespace ShopQuanAo.GiaoDien.NhanVien
 
         private void iconButton5_Click(object sender, EventArgs e)
         {
-            OpenForm(new QLDienThoai());
+            
             ClosePanel();
             panelDropDown1.Visible = true;
         }
@@ -127,6 +127,37 @@ namespace ShopQuanAo.GiaoDien.NhanVien
         {
             ClosePanel();
             panelDropDown3.Visible = true;
+        }
+
+        private void iconButton6_Click(object sender, EventArgs e)
+        {
+            OpenForm(new QLDienThoai());
+        }
+
+        private void iconButton9_Click(object sender, EventArgs e)
+        {
+            OpenForm(new QLKho());
+        }
+
+        private void iconButton8_Click(object sender, EventArgs e)
+        {
+            OpenForm(new QLNhaCungCap());
+        }
+
+        private void iconButton17_Click(object sender, EventArgs e)
+        {
+            OpenForm(new QLLoaiSanPham());
+
+        }
+
+        private void iconButton15_Click(object sender, EventArgs e)
+        {
+            OpenForm(new QLNhanVien());
+        }
+
+        private void iconButton14_Click(object sender, EventArgs e)
+        {
+            OpenForm(new QLKhachHang());
         }
     }
 }

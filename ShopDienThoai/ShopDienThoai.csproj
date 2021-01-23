@@ -77,6 +77,36 @@
     <Compile Include="GiaoDien\NhanVien\QLDienThoai.Designer.cs">
       <DependentUpon>QLDienThoai.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiaoDien\NhanVien\QLKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\NhanVien\QLKhachHang.Designer.cs">
+      <DependentUpon>QLKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoDien\NhanVien\QLKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\NhanVien\QLKho.Designer.cs">
+      <DependentUpon>QLKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoDien\NhanVien\QLLoaiSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\NhanVien\QLLoaiSanPham.Designer.cs">
+      <DependentUpon>QLLoaiSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoDien\NhanVien\QLNhaCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\NhanVien\QLNhaCungCap.Designer.cs">
+      <DependentUpon>QLNhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoDien\NhanVien\QLNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\NhanVien\QLNhanVien.Designer.cs">
+      <DependentUpon>QLNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="GiaoDien\NhanVien\TrangChuNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +136,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoDien\NhanVien\QLDienThoai.resx">
       <DependentUpon>QLDienThoai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDien\NhanVien\QLKho.resx">
+      <DependentUpon>QLKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDien\NhanVien\QLLoaiSanPham.resx">
+      <DependentUpon>QLLoaiSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDien\NhanVien\QLNhaCungCap.resx">
+      <DependentUpon>QLNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDien\NhanVien\QLNhanVien.resx">
+      <DependentUpon>QLNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoDien\NhanVien\TrangChuNhanVien.resx">
       <DependentUpon>TrangChuNhanVien.cs</DependentUpon>

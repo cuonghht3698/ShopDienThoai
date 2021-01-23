@@ -14,6 +14,8 @@ namespace ShopDienThoai.GiaoDien.NhanVien
     public partial class QLDienThoai : Form
     {
         private getData conn;
+        private int SloaiId, SnccId, SkhoId;
+        private int StrangThai = -1;
         public QLDienThoai()
         {
             InitializeComponent();
@@ -29,12 +31,23 @@ namespace ShopDienThoai.GiaoDien.NhanVien
         {
             GetSanPham();
             GetDataCB();
-            
+            btnXoaAnh1.Visible = false;
+            btnXoaAnh2.Visible = false;
+            cbKho.SelectedIndex = 1;
+            cbSKho.SelectedIndex = 0;
+            cbSLoai.SelectedIndex = 0;
+            cbSNcc.SelectedIndex = 0;
+            cbSTrangThai.SelectedIndex = 0;
+
         }
 
         private void GetSanPham()
         {
-            dataGridView1.DataSource = conn.getDataTable("SELECT s.id as 'Mã',s.ten as 'Tên',s.soluong as 'Số lượng',s.gianhap as 'Giá nhập',s.giaban as 'Giá bán',s.giaKM as 'Giá KM',(convert(varchar,k.id )+ ' -' + k.ten) as 'Kho',(convert(varchar,ncc.id) + ' -' + ncc.ten) as 'NCC',(convert(varchar,l.id) + ' -' + l.ten) as 'Loại',s.active as 'Hoạt động' FROM SanPham s left join Kho k on s.khoId = k.id left join NhaCungCap ncc on s.nccId = ncc.id left join LoaiSanPham l on s.loaispId = l.id");
+            dataGridView1.DataSource = conn.getDataTable("SELECT s.id as 'Mã',s.ten as 'Tên',s.soluong as 'Số lượng',s.gianhap as 'Giá nhập',s.giaban as 'Giá bán',s.giaKM as 'Giá KM',(convert(varchar,k.id )+ ' -' + k.ten) as 'Kho',(convert(varchar,ncc.id) + ' -' + ncc.ten) as 'NCC'" +
+                ",(convert(varchar,l.id) + ' -' + l.ten) as 'Loại',s.active as 'Hoạt động' FROM SanPham s left join Kho k on s.khoId = k.id left join NhaCungCap ncc on s.nccId = ncc.id left join LoaiSanPham l on s.loaispId = l.id " +
+                "where ('"
+                + txtSten.Text + "' = '' or s.ten like N'%" + txtSten.Text + "%') and (" + SkhoId + " = 0 or k.id = " + SkhoId + ") and ("
+                + SloaiId + " = 0 or l.id = " + SloaiId + ") and (" + SnccId + " = 0 or ncc.id = " + SnccId + ") and (" + StrangThai + " = -1 or s.active = " + StrangThai + ")");
 
         }
         private void UpdateSanPham()
@@ -58,29 +71,40 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             txtRom.Text = data.Rows[0][11].ToString();
             txtBaoHanh.Text = data.Rows[0][12].ToString();
             txtPhuKien.Text = data.Rows[0][13].ToString();
-            txtMoTa.Text = data.Rows[0][16].ToString();
+            txtMoTa.Text = data.Rows[0][15].ToString();
             ckHoatDong.Checked = data.Rows[0][19].ToString() == "True" ? true : false;
         }
         private void GetAnh(int id)
         {
             var dataAnh = conn.getDataTable("SELECT id,sanphamId,title,anh FROM AnhSanPham where sanphamId = " + id);
+            btnXoaAnh1.Visible = false;
+            btnXoaAnh2.Visible = false;
             if (dataAnh.Rows.Count > 0)
             {
                 if (dataAnh.Rows.Count == 1)
                 {
                     picAnh1.Image = Ham.GetImageFromString(dataAnh.Rows[0][3].ToString());
+                    btnXoaAnh1.Tag = dataAnh.Rows[0][0].ToString();
+                    btnXoaAnh1.Visible = true;
                 }
                 else
                 {
                     picAnh1.Image = Ham.GetImageFromString(dataAnh.Rows[0][3].ToString());
                     picAnh2.Image = Ham.GetImageFromString(dataAnh.Rows[1][3].ToString());
+                    btnXoaAnh1.Tag = dataAnh.Rows[0][0].ToString();
+                    btnXoaAnh2.Tag = dataAnh.Rows[1][0].ToString();
+                    btnXoaAnh2.Visible = true;
+                    btnXoaAnh1.Visible = true;
+
+
                 }
             }
+
         }
 
         private void Update()
         {
-            int id, soluong, gianhap, giaban, giaKM,khoId,nccId,loaispId;
+            int id, soluong, gianhap, giaban, giaKM, khoId, nccId, loaispId;
             DateTime ngaynhap;
             string ten, mausac, manhinh, camera, cpu, ram, rom, baohanh, phukiendikem, mota;
             bool active;
@@ -100,12 +124,41 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             phukiendikem = txtPhuKien.Text;
             mota = txtMoTa.Text;
             active = ckHoatDong.Checked;
-
-            string sql = "UPDATE SanPham SET ten = N'" + ten ;
+            khoId = Ham.GetIdFromCombobox(cbKho.SelectedItem.ToString());
+            nccId = Ham.GetIdFromCombobox(cbNCC.SelectedItem.ToString());
+            loaispId = Ham.GetIdFromCombobox(cbLoai.SelectedItem.ToString());
+            ngaynhap = DateTime.Now;
+            string sql = "UPDATE [dbo].[SanPham] SET [ten] = N'" + ten + "',[soluong] = " + soluong + ",[gianhap] = " + gianhap + ",[giaban] = " +
+                giaban + ",[giaKM] = " + giaKM + ",[mausac] = N'" + mausac + "',[manhinh] = N'" + manhinh + "',[camera] = N'" + camera +
+                "',[cpu] = N'" + cpu + "',[ram] = N'" + ram + "',[rom] = N'" + rom + "',[baohanh] = N'" + baohanh + "',[phukiendikem] = N'" + phukiendikem +
+                "',[ngaynhap] = N'" + ngaynhap + "',[mota] = N'" + mota + "',[khoId] = " + khoId + ",[nccId] = " + nccId + ",[loaispId] = " + loaispId + ",[active] = '" + active + "'WHERE id = " + id + "";
+            conn.ExecuteNonQuery(sql);
+            GetSanPham();
+            MessageBox.Show("Sửa thành công", "Thông báo");
         }
         private void UploadAnh()
         {
+            if (!String.IsNullOrEmpty(txtMa.Text))
+            {
+                conn.ExecuteNonQuery("DELETE AnhSanPham where sanphamId = " + Int32.Parse(txtMa.Text));
+                if (picAnh1.Image != null)
+                {
+                    conn.ExecuteNonQuery("insert into AnhSanPham (sanphamId,anh) values (" + Int32.Parse(txtMa.Text) + ",'" + Ham.GetStringFromImage(picAnh1.Image) + "')");
+                }
+                if (picAnh2.Image != null)
+                {
+                    conn.ExecuteNonQuery("insert into AnhSanPham (sanphamId,anh) values (" + Int32.Parse(txtMa.Text) + ",'" + Ham.GetStringFromImage(picAnh2.Image) + "')");
+                }
 
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa chọn sản phẩm", "Thông báo");
+            }
+        }
+        private void XoaAnh(int id)
+        {
+            conn.ExecuteNonQuery("delete AnhSanPham where id = " + id);
         }
         private void GetDataCB()
         {
@@ -156,7 +209,37 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             }
         }
 
-        private void iconButton4_Click(object sender, EventArgs e)
+
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txtMa.Text))
+            {
+                Update();
+                UploadAnh();
+                GetAnh(Int32.Parse(txtMa.Text));
+            }
+
+        }
+
+        private void btnXoaAnh1_Click(object sender, EventArgs e)
+        {
+            int id = Int32.Parse(btnXoaAnh1.Tag.ToString());
+            XoaAnh(id);
+            picAnh1.Image = null;
+            btnXoaAnh1.Visible = false;
+        }
+
+        private void btnXoaAnh2_Click(object sender, EventArgs e)
+        {
+            int id = Int32.Parse(btnXoaAnh2.Tag.ToString());
+            XoaAnh(id);
+            picAnh2.Image = null;
+            btnXoaAnh2.Visible = false;
+
+        }
+
+        private void picAnh1_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog dlg = new OpenFileDialog())
             {
@@ -169,20 +252,73 @@ namespace ShopDienThoai.GiaoDien.NhanVien
 
                     // Create a new Bitmap object from the picture file on disk,
                     // and assign that to the PictureBox.Image property
-                    picChonAnh.Image = new Bitmap(dlg.FileName);
-                    if (picAnh1.Image == null)
-                    {
-                        picAnh1.Image = new Bitmap(dlg.FileName);
-                    }
-                    else
-                    {
-                        picAnh2.Image = new Bitmap(dlg.FileName);
-                    }
+
+                    picAnh1.Image = new Bitmap(dlg.FileName);
+
                 }
             }
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
+        private void picChonAnh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbSNcc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SnccId = cbSNcc.SelectedIndex != 0 ? Ham.GetIdFromCombobox(cbSNcc.SelectedItem.ToString()) : 0;
+            GetSanPham();
+        }
+
+        private void cbSKho_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SkhoId = cbSKho.SelectedIndex != 0 ? Ham.GetIdFromCombobox(cbSKho.SelectedItem.ToString()) : 0;
+            GetSanPham();
+        }
+
+        private void cbSLoai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SloaiId = cbSLoai.SelectedIndex != 0 ? Ham.GetIdFromCombobox(cbSLoai.SelectedItem.ToString()) : 0;
+            GetSanPham();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbSTrangThai.SelectedIndex == 0)
+            {
+                StrangThai = -1;
+            }
+            else
+            {
+                StrangThai = cbSTrangThai.SelectedIndex == 1 ? 1 : 0;
+            }
+            GetSanPham();
+        }
+
+        private void txtSten_TextChanged(object sender, EventArgs e)
+        {
+            GetSanPham();
+        }
+
+        private void picAnh2_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                dlg.Title = "Open Image";
+                dlg.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    PictureBox PictureBox1 = new PictureBox();
+
+                    // Create a new Bitmap object from the picture file on disk,
+                    // and assign that to the PictureBox.Image property
+                    picAnh2.Image = new Bitmap(dlg.FileName);
+                }
+            }
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
         {
 
         }
