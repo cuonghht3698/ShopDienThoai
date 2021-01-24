@@ -15,6 +15,21 @@ namespace ShopDienThoai.GiaoDien.KhachHang
     public partial class SanPham : Form
     {
         private getData conn;
+        private int SNhaCungCap = 0;
+        private int SGiaTu = 0;
+        private int SGiaDen = 0;
+        private string Ssearch = "";
+        private string XapXep = "ASC";
+        private int SloaiDienThoai = 0;
+        private int SRamTu = 0;
+        private int SRamDen = 0;
+        private int SRomTu = 0;
+        private int SRomDen = 0;
+        private int SManHinhTu = 0;
+        private int SManHinhDen = 0;
+        private string orderBy = " giaban";
+        private string orderByType = " asc";
+
         public SanPham()
         {
             InitializeComponent();
@@ -29,7 +44,13 @@ namespace ShopDienThoai.GiaoDien.KhachHang
 
         private void GetSanPham()
         {
-            var data = conn.getDataTable("SELECT top 20 s.id,s.ten,s.giaKM,s.giaBan,s.luotxem,a.anh  from SanPham s left join AnhSanPham a on s.id = a.sanphamId");
+            var data = conn.getDataTable("select top 30 s.id,s.ten,s.giaKM,s.giaBan,s.luotxem,a.anh from SanPham s " +
+                "join (select * from AnhSanPham where id in (select max(id) from AnhSanPham group by sanphamId)) as a on s.id = a.sanphamId " +
+                "where ('" + Ssearch + "' = '' or s.ten like '%" + Ssearch + "%') and ( " + SloaiDienThoai + " = 0 or s.loaispId = " + SloaiDienThoai + ") " +
+                "and ( "+SNhaCungCap+ " = 0 or s.nccId = " + SNhaCungCap + ") and ("+SGiaTu+ " = 0 or s.giaban > " + SGiaTu + ") and (" + SGiaDen + " = 0 or s.giaban < " + SGiaDen + ")" +
+                " and (" + SRamTu+ " = 0 or s.ram > " + SRamTu + ") " +
+                "and ("+SRamDen+ " = 0 or s.ram < " + SRamDen + ") and ("+SRomTu+ " = 0 or s.rom > " + SRomTu + ")  and ("+SRamDen+ " = 0 or s.rom < " + SRamDen + ") " +
+                "and ("+SManHinhTu+ " = 0 or s.manhinh > " + SManHinhTu + ")  and (" + SManHinhDen + " = 0 or s.manhinh < " + SManHinhDen + ") order by giaban asc");
             foreach (DataRow item in data.Rows)
             {
                 int id = Int32.Parse(item[0].ToString());
@@ -39,7 +60,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
                 int giaBan = Int32.Parse(item[3].ToString());
                 int luotxem = Int32.Parse(item[4].ToString());
                 string anh = item[5].ToString();
-                createDienThoai(id, ten, giaKM, giaBan, luotxem ,anh);
+                createDienThoai(id, ten, giaKM, giaBan, luotxem, anh);
 
 
             }
@@ -49,17 +70,22 @@ namespace ShopDienThoai.GiaoDien.KhachHang
 
         private void GetLoaiDienThoai()
         {
-            var data = conn.getDataTable("SELECT top 10 * from LoaiSanPham");
-            foreach (DataRow item in data.Rows)
+            var data = conn.getDataTable("SELECT top 10 * from NhaCungCap");
+            if (data.Rows.Count > 0)
             {
-                int id = Int32.Parse(item[0].ToString());
-                string ten = item[1].ToString();
+                panelShowSP.Controls.Clear();
+                foreach (DataRow item in data.Rows)
+                {
+                    int id = Int32.Parse(item[0].ToString());
+                    string ten = item[1].ToString();
 
-                createSearchHeader(id, ten);
+                    createSearchHeader(id, ten);
 
 
+                }
             }
-            Console.WriteLine(data.Rows.Count);
+           
+            createSearchHeader(0, "Tất cả");
 
         }
 
@@ -73,7 +99,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         }
         private int wButtonSearch = 0;
         private int wButtonSearchCount = 0;
-        private void createSearchHeader(int id ,string ten)
+        private void createSearchHeader(int id, string ten)
         {
             wButtonSearchCount++;
             IconButton iconButton = new IconButton();
@@ -100,6 +126,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         private int count = 0;
         private void createDienThoai(int id, string tenSp, int giaKm, int giaBan, int luotxem, string anh)
         {
+            
             Panel panel = new Panel();
             PictureBox pic = new PictureBox();
             Label ten = new Label();
@@ -108,7 +135,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             Label view = new Label();
             Label viewCount = new Label();
             IconButton button = new IconButton();
-
+            
             // location
             w = (panelMau.Width + 10) * count;
 
@@ -193,6 +220,10 @@ namespace ShopDienThoai.GiaoDien.KhachHang
 
         }
 
-
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            Ssearch = txtSearch.Text;
+            GetSanPham();
+        }
     }
 }

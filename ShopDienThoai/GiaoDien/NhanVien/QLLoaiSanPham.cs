@@ -28,10 +28,16 @@ namespace ShopDienThoai.GiaoDien.NhanVien
         private void GetAll()
         {
 
-            dataGridView1.DataSource = con.getDataTable("SELECT ROW_NUMBER() OVER(ORDER BY ID) as 'STT' ,id as 'Mã', ten as 'Tên',mota as 'Mô tả' FROM LoaiSanPham");
-            dataGridView1.Columns[0].Width = 44;
-            dataGridView1.Columns[1].Width = 44;
-            dataGridView1.Columns[2].Width = 44;
+           var data = con.getDataTable("SELECT ROW_NUMBER() OVER(ORDER BY ID) as 'STT' ,id as 'Mã', ten as 'Tên',mota as 'Mô tả' FROM LoaiSanPham");
+            
+            if (data.Rows.Count > 0)
+            {
+                dataGridView1.DataSource = data;
+                dataGridView1.Columns[0].Width = 44;
+                dataGridView1.Columns[1].Width = 44;
+                dataGridView1.Columns[2].Width = 44;
+            }
+           
 
 
 

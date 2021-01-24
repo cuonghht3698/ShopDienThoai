@@ -142,6 +142,40 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             GetSanPham();
             MessageBox.Show("Sửa thành công", "Thông báo");
         }
+        private void Insert()
+        {
+            int id, soluong, gianhap, giaban, giaKM, khoId, nccId, loaispId, luotxem, danhgia;
+            DateTime ngaynhap;
+            string ten, mausac, manhinh, camera, cpu, ram, rom, baohanh, phukiendikem, mota;
+            bool active;
+            id = Int32.Parse(txtMa.Text);
+            ten = txtTen.Text;
+            soluong = 0;
+            gianhap = Int32.Parse(txtGiaNhap.Text);
+            giaban = Int32.Parse(txtGiaBan.Text);
+            giaKM = Int32.Parse(txtGiaKM.Text);
+            mausac = txtMauSac.Text;
+            manhinh = txtManHinh.Text;
+            camera = txtCamera.Text;
+            cpu = txtCPU.Text;
+            ram = txtRam.Text;
+            rom = txtRom.Text;
+            baohanh = txtBaoHanh.Text;
+            phukiendikem = txtPhuKien.Text;
+            mota = txtMoTa.Text;
+            active = ckHoatDong.Checked;
+            khoId = Ham.GetIdFromCombobox(cbKho.SelectedItem.ToString());
+            nccId = Ham.GetIdFromCombobox(cbNCC.SelectedItem.ToString());
+            loaispId = Ham.GetIdFromCombobox(cbLoai.SelectedItem.ToString());
+            ngaynhap = DateTime.Now;
+            luotxem = 0;
+            danhgia = 0;
+            string sql = @"INSERT INTO [dbo].[SanPham]([ten],[soluong],[gianhap],[giaban],[giaKM],[mausac],[manhinh],[camera],[cpu],[ram]  ,[rom]  ,[baohanh] ,[phukiendikem]  ,[ngaynhap]  ,[mota] ,[khoId] ,[nccId],[loaispId],[active],[luotxem],[danhgia]) VALUES
+           (N'" + ten + "'," + soluong + "," + gianhap + " ," + giaban + "," + giaKM + ",N'" + mausac + "',N'" + manhinh + "',N'" + camera + "', N'" + cpu + "' , N'" + ram + "', N'" + rom + "', N'" + baohanh + "', N'" + phukiendikem + "', '" + ngaynhap + "',N'" + mota + "' ," + khoId + " ," + nccId + "," + loaispId + ",1," + luotxem + "," + danhgia + ")";
+            conn.ExecuteNonQuery(sql);
+            GetSanPham();
+           
+        }
         private void UploadAnh()
         {
             if (!String.IsNullOrEmpty(txtMa.Text))
@@ -326,7 +360,16 @@ namespace ShopDienThoai.GiaoDien.NhanVien
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Insert();
+                MessageBox.Show("Thêm thành công", "Thông báo");
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
     }
 }

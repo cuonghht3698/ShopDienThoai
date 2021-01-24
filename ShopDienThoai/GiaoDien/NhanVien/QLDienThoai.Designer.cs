@@ -287,7 +287,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.iconButton9.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton9.IconColor = System.Drawing.Color.Black;
             this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton9.Location = new System.Drawing.Point(209, 124);
+            this.iconButton9.Location = new System.Drawing.Point(219, 124);
             this.iconButton9.Name = "iconButton9";
             this.iconButton9.Size = new System.Drawing.Size(29, 22);
             this.iconButton9.TabIndex = 44;
@@ -299,7 +299,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.iconButton8.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton8.IconColor = System.Drawing.Color.Black;
             this.iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton8.Location = new System.Drawing.Point(209, 78);
+            this.iconButton8.Location = new System.Drawing.Point(219, 78);
             this.iconButton8.Name = "iconButton8";
             this.iconButton8.Size = new System.Drawing.Size(29, 22);
             this.iconButton8.TabIndex = 44;
@@ -311,7 +311,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton7.IconColor = System.Drawing.Color.Black;
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton7.Location = new System.Drawing.Point(209, 29);
+            this.iconButton7.Location = new System.Drawing.Point(219, 29);
             this.iconButton7.Name = "iconButton7";
             this.iconButton7.Size = new System.Drawing.Size(29, 22);
             this.iconButton7.TabIndex = 44;
@@ -323,7 +323,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.cbLoai.FormattingEnabled = true;
             this.cbLoai.Items.AddRange(new object[] {
             "Loại thiết bị"});
-            this.cbLoai.Location = new System.Drawing.Point(77, 124);
+            this.cbLoai.Location = new System.Drawing.Point(87, 124);
             this.cbLoai.Name = "cbLoai";
             this.cbLoai.Size = new System.Drawing.Size(126, 21);
             this.cbLoai.TabIndex = 17;
@@ -341,8 +341,8 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // 
             this.cbNCC.FormattingEnabled = true;
             this.cbNCC.Items.AddRange(new object[] {
-            "Chọn NCC"});
-            this.cbNCC.Location = new System.Drawing.Point(77, 78);
+            "Chọn NSX"});
+            this.cbNCC.Location = new System.Drawing.Point(87, 78);
             this.cbNCC.Name = "cbNCC";
             this.cbNCC.Size = new System.Drawing.Size(126, 21);
             this.cbNCC.TabIndex = 16;
@@ -352,7 +352,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.cbKho.FormattingEnabled = true;
             this.cbKho.Items.AddRange(new object[] {
             "Chọn kho"});
-            this.cbKho.Location = new System.Drawing.Point(77, 30);
+            this.cbKho.Location = new System.Drawing.Point(87, 30);
             this.cbKho.Name = "cbKho";
             this.cbKho.Size = new System.Drawing.Size(126, 21);
             this.cbKho.TabIndex = 15;
@@ -371,9 +371,9 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(6, 81);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.Size = new System.Drawing.Size(74, 13);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Nhà CC";
+            this.label6.Text = "Nhà Sản Xuất";
             // 
             // label5
             // 
