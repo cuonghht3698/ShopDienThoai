@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using ShopQuanAo.GiaoDien.KhachHang;
 using ShopQuanAo.Public;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,6 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         private int SGiaTu = 0;
         private int SGiaDen = 0;
         private string Ssearch = "";
-        private string XapXep = "ASC";
         private int SloaiDienThoai = 0;
         private int SRamTu = 0;
         private int SRamDen = 0;
@@ -27,7 +27,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         private int SRomDen = 0;
         private int SManHinhTu = 0;
         private int SManHinhDen = 0;
-        private string orderBy = " giaban";
+        private string orderBy = " order by giaban";
         private string orderByType = " asc";
 
         public SanPham()
@@ -39,41 +39,66 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         {
             GetSanPham();
             GetLoaiDienThoai();
+
         }
 
 
         private void GetSanPham()
         {
+
             var data = conn.getDataTable("select top 30 s.id,s.ten,s.giaKM,s.giaBan,s.luotxem,a.anh from SanPham s " +
                 "join (select * from AnhSanPham where id in (select max(id) from AnhSanPham group by sanphamId)) as a on s.id = a.sanphamId " +
                 "where ('" + Ssearch + "' = '' or s.ten like '%" + Ssearch + "%') and ( " + SloaiDienThoai + " = 0 or s.loaispId = " + SloaiDienThoai + ") " +
-                "and ( "+SNhaCungCap+ " = 0 or s.nccId = " + SNhaCungCap + ") and ("+SGiaTu+ " = 0 or s.giaban > " + SGiaTu + ") and (" + SGiaDen + " = 0 or s.giaban < " + SGiaDen + ")" +
-                " and (" + SRamTu+ " = 0 or s.ram > " + SRamTu + ") " +
-                "and ("+SRamDen+ " = 0 or s.ram < " + SRamDen + ") and ("+SRomTu+ " = 0 or s.rom > " + SRomTu + ")  and ("+SRamDen+ " = 0 or s.rom < " + SRamDen + ") " +
-                "and ("+SManHinhTu+ " = 0 or s.manhinh > " + SManHinhTu + ")  and (" + SManHinhDen + " = 0 or s.manhinh < " + SManHinhDen + ") order by giaban asc");
-            foreach (DataRow item in data.Rows)
-            {
-                int id = Int32.Parse(item[0].ToString());
-                string ten = item[1].ToString();
-
-                int giaKM = Int32.Parse(item[2].ToString());
-                int giaBan = Int32.Parse(item[3].ToString());
-                int luotxem = Int32.Parse(item[4].ToString());
-                string anh = item[5].ToString();
-                createDienThoai(id, ten, giaKM, giaBan, luotxem, anh);
-
-
-            }
-            Console.WriteLine(data.Rows.Count);
-
-        }
-
-        private void GetLoaiDienThoai()
-        {
-            var data = conn.getDataTable("SELECT top 10 * from NhaCungCap");
+                "and ( " + SNhaCungCap + " = 0 or s.nccId = " + SNhaCungCap + ") and (" + SGiaTu + " = 0 or s.giaban >= " + SGiaTu + ") and (" + SGiaDen + " = 0 or s.giaban <= " + SGiaDen + ")" +
+                " and (" + SRamTu + " = 0 or s.ram >= " + SRamTu + ") " +
+                "and (" + SRamDen + " = 0 or s.ram <= " + SRamDen + ") and (" + SRomTu + " = 0 or s.rom >= " + SRomTu + ")  and (" + SRomDen + " = 0 or s.rom <= " + SRomDen + ") " +
+                "and (" + SManHinhTu + " = 0 or s.manhinh >= " + SManHinhTu + ")  and (" + SManHinhDen + " = 0 or s.manhinh <= " + SManHinhDen + ") " + orderBy + orderByType);
             if (data.Rows.Count > 0)
             {
                 panelShowSP.Controls.Clear();
+                w = 0;
+                h = 20;
+                count = 0;
+                foreach (DataRow item in data.Rows)
+                {
+
+                    int id = Int32.Parse(item[0].ToString());
+                    string ten = item[1].ToString();
+
+                    int giaKM = Int32.Parse(item[2].ToString());
+                    int giaBan = Int32.Parse(item[3].ToString());
+                    int luotxem = Int32.Parse(item[4].ToString());
+                    string anh = item[5].ToString();
+                    createDienThoai(id, ten, giaKM, giaBan, luotxem, anh);
+
+
+                }
+
+                panelShowSP.Controls.Add(panelButtom);
+            }
+            else
+            {
+                panelShowSP.Controls.Clear();
+                panelShowSP.Controls.Add(panelEmptySP);
+                panelEmptySP.Visible = true;
+            }
+
+
+
+        }
+        private void SearchGia(int tu, int den)
+        {
+            SGiaTu = tu;
+            SGiaDen = den;
+            GetSanPham();
+        }
+        private void GetLoaiDienThoai()
+        {
+            var data = conn.getDataTable("SELECT top 10 * from NhaCungCap");
+            var loai = conn.getDataTable("SELECT top 3 * from LoaiSanPham");
+            if (data.Rows.Count > 0)
+            {
+
                 foreach (DataRow item in data.Rows)
                 {
                     int id = Int32.Parse(item[0].ToString());
@@ -84,19 +109,77 @@ namespace ShopDienThoai.GiaoDien.KhachHang
 
                 }
             }
-           
+            if (loai.Rows.Count > 0)
+            {
+                CreateSearchLoai(0, "Tất cả");
+                foreach (DataRow item in loai.Rows)
+                {
+                    int id = Int32.Parse(item[0].ToString());
+                    string ten = item[1].ToString();
+
+                    CreateSearchLoai(id, ten);
+
+
+                }
+            }
             createSearchHeader(0, "Tất cả");
 
         }
 
         private void SearchHeader(int id)
         {
-            MessageBox.Show(id.ToString());
+            SNhaCungCap = id;
+            GetSanPham();
         }
         private void DatHang(int id)
         {
-            MessageBox.Show(id.ToString());
+            MessageBox.Show(id.ToString() + "1");
         }
+        private int XLoai = 0;
+        private void CreateSearchLoai(int id, string ten)
+        {
+
+            LinkLabel link = new LinkLabel();
+            link.Location = new Point(linkLoaiAll.Location.X, linkLoaiAll.Location.Y + XLoai);
+            link.LinkBehavior = linkLoaiAll.LinkBehavior;
+            link.Text = ten;
+            link.Tag = id;
+            link.Click += (object sender, EventArgs e) =>
+             {
+                 SearchLoai(id);
+
+             };
+            groupBox1.Controls.Add(link);
+            XLoai += 25;
+        }
+        private void SearchLoai(int id)
+        {
+            SloaiDienThoai = id;
+            GetSanPham();
+        }
+
+
+        //BỎ BỘ LỌC
+
+        private void BoBoLoc()
+        {
+            SNhaCungCap = 0;
+            SGiaTu = 0;
+            SGiaDen = 0;
+            Ssearch = "";
+            SloaiDienThoai = 0;
+            SRamTu = 0;
+            SRamDen = 0;
+            SRomTu = 0;
+            SRomDen = 0;
+            SManHinhTu = 0;
+            SManHinhDen = 0;
+            orderBy = " order by giaban";
+            orderByType = " asc";
+            GetSanPham();
+
+        }
+
         private int wButtonSearch = 0;
         private int wButtonSearchCount = 0;
         private void createSearchHeader(int id, string ten)
@@ -126,8 +209,9 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         private int count = 0;
         private void createDienThoai(int id, string tenSp, int giaKm, int giaBan, int luotxem, string anh)
         {
-            
+
             Panel panel = new Panel();
+
             PictureBox pic = new PictureBox();
             Label ten = new Label();
             Label gia = new Label();
@@ -135,11 +219,11 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             Label view = new Label();
             Label viewCount = new Label();
             IconButton button = new IconButton();
-            
+
             // location
             w = (panelMau.Width + 10) * count;
 
-            if (this.Width < w + 90)
+            if (panelShowSP.Width < w + 70)
             {
                 w = 0;
                 count = 0;
@@ -154,12 +238,21 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             panel.BorderStyle = panelMau.BorderStyle;
             panel.Cursor = panelMau.Cursor;
             panel.BackColor = panelMau.BackColor;
+            panel.Click += (object s, EventArgs e) =>
+              {
+                  OpenChiTietSanPham(id);
+              };
             panel.Location = new Point(20 + w, h);
+
             // anh sp
             pic.Location = pictureMau.Location;
             pic.Size = pictureMau.Size;
             pic.Image = String.IsNullOrEmpty(anh) ? null : Ham.GetImageFromString(anh);
             pic.SizeMode = PictureBoxSizeMode.Zoom;
+            pic.Click += (object s, EventArgs e) =>
+            {
+                OpenChiTietSanPham(id);
+            };
             panel.Controls.Add(pic);
             // ten sp
             ten.Location = lbTenMau.Location;
@@ -168,19 +261,39 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             ten.Font = lbTenMau.Font;
             ten.AutoSize = lbTenMau.AutoSize;
             ten.Size = lbTenMau.Size;
+            ten.Click += (object s, EventArgs e) =>
+            {
+                OpenChiTietSanPham(id);
+            };
             panel.Controls.Add(ten);
             // gia
+            if (giaKm == 0)
+            {
+                giaKm = giaBan;
+            }
+            else
+            {
+                giaGach.Location = lbGiaGachMau.Location;
+                giaGach.Font = lbGiaGachMau.Font;
+                giaGach.ForeColor = lbGiaGachMau.ForeColor;
+                giaGach.Text = giaBan + " đ";
+                giaGach.Click += (object s, EventArgs e) =>
+                {
+                    OpenChiTietSanPham(id);
+                };
+                panel.Controls.Add(giaGach);
+            }
             gia.Location = lbGiaMau.Location;
             gia.Font = lbGiaMau.Font;
             gia.ForeColor = lbGiaMau.ForeColor;
             gia.Text = giaKm + " đ";
+            gia.Click += (object s, EventArgs e) =>
+            {
+                OpenChiTietSanPham(id);
+            };
             panel.Controls.Add(gia);
             // gia gach giữa
-            giaGach.Location = lbGiaGachMau.Location;
-            giaGach.Font = lbGiaGachMau.Font;
-            giaGach.ForeColor = lbGiaGachMau.ForeColor;
-            giaGach.Text = giaBan + " đ";
-            panel.Controls.Add(giaGach);
+
 
 
             // VIEW COUNT
@@ -188,12 +301,20 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             viewCount.Font = lbViewCountMau.Font;
             viewCount.ForeColor = lbViewCountMau.ForeColor;
             viewCount.Text = luotxem.ToString();
+            viewCount.Click += (object s, EventArgs e) =>
+            {
+                OpenChiTietSanPham(id);
+            };
             panel.Controls.Add(viewCount);
             // VIEW
             view.Location = lbViewMau.Location;
             view.Font = lbViewMau.Font;
             view.ForeColor = lbViewMau.ForeColor;
             view.Text = lbViewMau.Text;
+            view.Click += (object s, EventArgs e) =>
+            {
+                OpenChiTietSanPham(id);
+            };
             panel.Controls.Add(view);
 
             // button dat hang
@@ -218,12 +339,199 @@ namespace ShopDienThoai.GiaoDien.KhachHang
 
             panelShowSP.Controls.Add(panel);
 
+
+
+        }
+
+        private void OpenChiTietSanPham(int id)
+        {
+            conn.ExecuteNonQuery("update sanpham set luotxem = luotxem +1 where id = " +id);
+            
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             Ssearch = txtSearch.Text;
             GetSanPham();
+        }
+
+
+        private void ResetLinkGia()
+        {
+            linkGia1.BackColor = Color.Empty;
+            linkGia2.BackColor = Color.Empty;
+            linkGia3.BackColor = Color.Empty;
+            linkGia4.BackColor = Color.Empty;
+            linkGia5.BackColor = Color.Empty;
+            linkGia6.BackColor = Color.Empty;
+        }
+        private void linkLabel10_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SearchGia(0, 5000000);
+            ResetLinkGia();
+            linkGia1.BackColor = Color.Red;
+
+
+        }
+
+        private void linkLabel9_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SearchGia(0, 0);
+            ResetLinkGia();
+            linkGia6.BackColor = Color.Red;
+
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SearchGia(5000000, 10000000);
+            ResetLinkGia();
+            linkGia2.BackColor = Color.Red;
+
+
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SearchGia(10000000, 15000000);
+            ResetLinkGia();
+            linkGia3.BackColor = Color.Red;
+
+
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SearchGia(15000000, 20000000);
+            ResetLinkGia();
+            linkGia4.BackColor = Color.Red;
+
+
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SearchGia(20000000, 0);
+            ResetLinkGia();
+            linkGia5.BackColor = Color.Red;
+
+
+        }
+        private void linkRamAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SRamTu = 0;
+            SRamDen = 0;
+            GetSanPham();
+
+        }
+        private void linkLabel13_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SRamTu = 0;
+            SRamDen = 4;
+            GetSanPham();
+        }
+
+        private void linkRam46_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SRamTu = 4;
+            SRamDen = 6;
+            GetSanPham();
+        }
+
+        private void linkRam8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SRamTu = 8;
+            SRamDen = 0;
+            GetSanPham();
+        }
+
+        private void linkRomAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SRomTu = 0;
+            SRomDen = 0;
+            GetSanPham();
+        }
+
+        private void linkRom32_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SRomTu = 0;
+            SRomDen = 32;
+            GetSanPham();
+        }
+
+        private void linkRom128256_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SRomTu = 128;
+            SRomDen = 256;
+            GetSanPham();
+        }
+
+        private void linkRom3264_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SRomTu = 32;
+            SRomDen = 64;
+            GetSanPham();
+        }
+
+        private void linkRom512_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SRomTu = 512;
+            SRomDen = 0;
+            GetSanPham();
+        }
+
+        private void linkMHAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SManHinhTu = 0;
+            SManHinhDen = 0;
+            GetSanPham();
+        }
+
+        private void linkMHD6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SManHinhTu = 0;
+            SManHinhDen = 6;
+            GetSanPham();
+        }
+
+        private void linkMHT6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SManHinhTu = 6;
+            SManHinhDen = 0;
+            GetSanPham();
+        }
+
+        private void linkLabel8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            orderBy = "order by giaban";
+            orderByType = " asc";
+            GetSanPham();
+        }
+
+        private void linkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            orderBy = "order by giaban";
+            orderByType = " desc";
+            GetSanPham();
+        }
+        private bool checkLuotXem = true;
+        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            orderBy = "order by luotxem ";
+            orderByType = checkLuotXem ? " asc" : " desc";
+            GetSanPham();
+            checkLuotXem = !checkLuotXem;
+        }
+
+        private void iconButton9_Click(object sender, EventArgs e)
+        {
+            BoBoLoc();
         }
     }
 }

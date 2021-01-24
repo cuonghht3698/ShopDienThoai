@@ -1,4 +1,5 @@
 ﻿using ShopDienThoai.GiaoDien.KhachHang;
+using ShopQuanAo.GiaoDien.User;
 using ShopQuanAo.Public;
 using System;
 using System.Collections.Generic;
@@ -69,6 +70,18 @@ namespace ShopQuanAo.GiaoDien.KhachHang
         private void iconButton4_Click(object sender, EventArgs e)
         {
             OpenForm(new SanPham());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            DangNhap dk = new DangNhap();
+            dk.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

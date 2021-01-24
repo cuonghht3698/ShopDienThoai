@@ -62,8 +62,9 @@ namespace ShopQuanAo.GiaoDien.KhachHang
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1340, 31);
+            this.panel1.Size = new System.Drawing.Size(1363, 31);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // iconButton3
@@ -75,7 +76,7 @@ namespace ShopQuanAo.GiaoDien.KhachHang
             this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 30;
-            this.iconButton3.Location = new System.Drawing.Point(1202, 0);
+            this.iconButton3.Location = new System.Drawing.Point(1225, 0);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(46, 31);
             this.iconButton3.TabIndex = 1;
@@ -91,7 +92,7 @@ namespace ShopQuanAo.GiaoDien.KhachHang
             this.iconButton2.IconColor = System.Drawing.Color.Black;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 30;
-            this.iconButton2.Location = new System.Drawing.Point(1248, 0);
+            this.iconButton2.Location = new System.Drawing.Point(1271, 0);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(46, 31);
             this.iconButton2.TabIndex = 2;
@@ -108,7 +109,7 @@ namespace ShopQuanAo.GiaoDien.KhachHang
             this.iconButton1.IconColor = System.Drawing.Color.DarkRed;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 30;
-            this.iconButton1.Location = new System.Drawing.Point(1294, 0);
+            this.iconButton1.Location = new System.Drawing.Point(1317, 0);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(46, 31);
             this.iconButton1.TabIndex = 3;
@@ -132,7 +133,7 @@ namespace ShopQuanAo.GiaoDien.KhachHang
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 31);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1340, 57);
+            this.panel2.Size = new System.Drawing.Size(1363, 57);
             this.panel2.TabIndex = 1;
             // 
             // panel4
@@ -144,7 +145,7 @@ namespace ShopQuanAo.GiaoDien.KhachHang
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(1025, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(315, 57);
+            this.panel4.Size = new System.Drawing.Size(338, 57);
             this.panel4.TabIndex = 1;
             // 
             // button1
@@ -155,6 +156,7 @@ namespace ShopQuanAo.GiaoDien.KhachHang
             this.button1.TabIndex = 2;
             this.button1.Text = "Thoát";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lbHoTen
             // 
@@ -178,7 +180,7 @@ namespace ShopQuanAo.GiaoDien.KhachHang
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(251, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(274, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(64, 57);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -239,14 +241,14 @@ namespace ShopQuanAo.GiaoDien.KhachHang
             this.panelPerent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPerent.Location = new System.Drawing.Point(0, 88);
             this.panelPerent.Name = "panelPerent";
-            this.panelPerent.Size = new System.Drawing.Size(1340, 693);
+            this.panelPerent.Size = new System.Drawing.Size(1363, 693);
             this.panelPerent.TabIndex = 2;
             // 
             // TrangChuKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1340, 781);
+            this.ClientSize = new System.Drawing.Size(1363, 781);
             this.ControlBox = false;
             this.Controls.Add(this.panelPerent);
             this.Controls.Add(this.panel2);

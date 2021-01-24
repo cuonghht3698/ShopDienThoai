@@ -97,6 +97,9 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.txtSten = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -394,6 +397,9 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label29);
+            this.groupBox2.Controls.Add(this.label28);
+            this.groupBox2.Controls.Add(this.label27);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.txtCamera);
@@ -430,57 +436,57 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(15, 61);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(51, 13);
+            this.label12.Size = new System.Drawing.Size(71, 13);
             this.label12.TabIndex = 0;
-            this.label12.Text = "Màn hình";
+            this.label12.Text = "Màn hình (số)";
             // 
             // txtCamera
             // 
-            this.txtCamera.Location = new System.Drawing.Point(91, 93);
+            this.txtCamera.Location = new System.Drawing.Point(97, 94);
             this.txtCamera.Name = "txtCamera";
             this.txtCamera.Size = new System.Drawing.Size(186, 20);
             this.txtCamera.TabIndex = 10;
             // 
             // txtBaoHanh
             // 
-            this.txtBaoHanh.Location = new System.Drawing.Point(91, 255);
+            this.txtBaoHanh.Location = new System.Drawing.Point(97, 256);
             this.txtBaoHanh.Name = "txtBaoHanh";
-            this.txtBaoHanh.Size = new System.Drawing.Size(116, 20);
+            this.txtBaoHanh.Size = new System.Drawing.Size(186, 20);
             this.txtBaoHanh.TabIndex = 14;
             // 
             // txtCPU
             // 
-            this.txtCPU.Location = new System.Drawing.Point(91, 137);
+            this.txtCPU.Location = new System.Drawing.Point(97, 138);
             this.txtCPU.Name = "txtCPU";
             this.txtCPU.Size = new System.Drawing.Size(186, 20);
             this.txtCPU.TabIndex = 11;
             // 
             // txtRom
             // 
-            this.txtRom.Location = new System.Drawing.Point(91, 216);
+            this.txtRom.Location = new System.Drawing.Point(97, 217);
             this.txtRom.Name = "txtRom";
-            this.txtRom.Size = new System.Drawing.Size(116, 20);
+            this.txtRom.Size = new System.Drawing.Size(72, 20);
             this.txtRom.TabIndex = 13;
             // 
             // txtMauSac
             // 
-            this.txtMauSac.Location = new System.Drawing.Point(91, 29);
+            this.txtMauSac.Location = new System.Drawing.Point(97, 30);
             this.txtMauSac.Name = "txtMauSac";
             this.txtMauSac.Size = new System.Drawing.Size(186, 20);
             this.txtMauSac.TabIndex = 8;
             // 
             // txtRam
             // 
-            this.txtRam.Location = new System.Drawing.Point(91, 177);
+            this.txtRam.Location = new System.Drawing.Point(97, 178);
             this.txtRam.Name = "txtRam";
-            this.txtRam.Size = new System.Drawing.Size(116, 20);
+            this.txtRam.Size = new System.Drawing.Size(72, 20);
             this.txtRam.TabIndex = 12;
             // 
             // txtManHinh
             // 
-            this.txtManHinh.Location = new System.Drawing.Point(91, 57);
+            this.txtManHinh.Location = new System.Drawing.Point(97, 58);
             this.txtManHinh.Name = "txtManHinh";
-            this.txtManHinh.Size = new System.Drawing.Size(186, 20);
+            this.txtManHinh.Size = new System.Drawing.Size(72, 20);
             this.txtManHinh.TabIndex = 9;
             // 
             // label11
@@ -506,18 +512,18 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(15, 220);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(62, 13);
+            this.label15.Size = new System.Drawing.Size(82, 13);
             this.label15.TabIndex = 0;
-            this.label15.Text = "Dung lượng";
+            this.label15.Text = "Dung lượng (số)";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(15, 181);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 13);
+            this.label9.Size = new System.Drawing.Size(49, 13);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Ram";
+            this.label9.Text = "Ram (số)";
             // 
             // label10
             // 
@@ -821,6 +827,33 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.dataGridView1.TabIndex = 222;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(175, 61);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(28, 13);
+            this.label27.TabIndex = 15;
+            this.label27.Text = "Inch";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(175, 181);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(22, 13);
+            this.label28.TabIndex = 16;
+            this.label28.Text = "GB";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(175, 220);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(22, 13);
+            this.label29.TabIndex = 16;
+            this.label29.Text = "GB";
+            // 
             // QLDienThoai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -921,5 +954,8 @@ namespace ShopDienThoai.GiaoDien.NhanVien
         private System.Windows.Forms.TextBox txtMoTa;
         private System.Windows.Forms.ComboBox cbSTrangThai;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
     }
 }
