@@ -54,6 +54,9 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.label5 = new System.Windows.Forms.Label();
             this.txtPhuKien = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtCamera = new System.Windows.Forms.TextBox();
@@ -97,9 +100,6 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.txtSten = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -197,7 +197,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(17, 165);
+            this.label25.Location = new System.Drawing.Point(17, 170);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(46, 13);
             this.label25.TabIndex = 435;
@@ -216,9 +216,9 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // 
             this.picAnh2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.picAnh2.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.picAnh2.Location = new System.Drawing.Point(20, 180);
+            this.picAnh2.Location = new System.Drawing.Point(6, 195);
             this.picAnh2.Name = "picAnh2";
-            this.picAnh2.Size = new System.Drawing.Size(116, 127);
+            this.picAnh2.Size = new System.Drawing.Size(156, 127);
             this.picAnh2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picAnh2.TabIndex = 434;
             this.picAnh2.TabStop = false;
@@ -228,9 +228,9 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // 
             this.picAnh1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.picAnh1.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.picAnh1.Location = new System.Drawing.Point(20, 33);
+            this.picAnh1.Location = new System.Drawing.Point(6, 40);
             this.picAnh1.Name = "picAnh1";
-            this.picAnh1.Size = new System.Drawing.Size(116, 127);
+            this.picAnh1.Size = new System.Drawing.Size(156, 127);
             this.picAnh1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picAnh1.TabIndex = 434;
             this.picAnh1.TabStop = false;
@@ -242,7 +242,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.btnXoaAnh1.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnXoaAnh1.IconColor = System.Drawing.Color.Black;
             this.btnXoaAnh1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnXoaAnh1.Location = new System.Drawing.Point(139, 30);
+            this.btnXoaAnh1.Location = new System.Drawing.Point(133, 8);
             this.btnXoaAnh1.Name = "btnXoaAnh1";
             this.btnXoaAnh1.Size = new System.Drawing.Size(43, 30);
             this.btnXoaAnh1.TabIndex = 433;
@@ -256,7 +256,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.btnXoaAnh2.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnXoaAnh2.IconColor = System.Drawing.Color.Black;
             this.btnXoaAnh2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnXoaAnh2.Location = new System.Drawing.Point(139, 180);
+            this.btnXoaAnh2.Location = new System.Drawing.Point(133, 165);
             this.btnXoaAnh2.Name = "btnXoaAnh2";
             this.btnXoaAnh2.Size = new System.Drawing.Size(43, 29);
             this.btnXoaAnh2.TabIndex = 333;
@@ -421,6 +421,33 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cấu hình sản phẩm";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(175, 220);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(22, 13);
+            this.label29.TabIndex = 16;
+            this.label29.Text = "GB";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(175, 181);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(22, 13);
+            this.label28.TabIndex = 16;
+            this.label28.Text = "GB";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(175, 61);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(28, 13);
+            this.label27.TabIndex = 15;
+            this.label27.Text = "Inch";
             // 
             // label18
             // 
@@ -826,33 +853,6 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.dataGridView1.Size = new System.Drawing.Size(1143, 306);
             this.dataGridView1.TabIndex = 222;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(175, 61);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(28, 13);
-            this.label27.TabIndex = 15;
-            this.label27.Text = "Inch";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(175, 181);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(22, 13);
-            this.label28.TabIndex = 16;
-            this.label28.Text = "GB";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(175, 220);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(22, 13);
-            this.label29.TabIndex = 16;
-            this.label29.Text = "GB";
             // 
             // QLDienThoai
             // 

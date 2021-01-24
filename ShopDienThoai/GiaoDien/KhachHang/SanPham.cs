@@ -27,9 +27,9 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         private int SRomDen = 0;
         private int SManHinhTu = 0;
         private int SManHinhDen = 0;
-        private string orderBy = " order by giaban";
-        private string orderByType = " asc";
-
+        private string orderBy = " order by s.soluong";
+        private string orderByType = " desc";
+        private int IdHoaDon = 0;
         public SanPham()
         {
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         {
             GetSanPham();
             GetLoaiDienThoai();
-
+            CheckHoaDon();
         }
 
 
@@ -47,7 +47,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         {
             panelSearchLoai.Visible = true;
             panelThu2.Visible = true;
-            var data = conn.getDataTable("select top 30 s.id,s.ten,s.giaKM,s.giaBan,s.luotxem,a.anh from SanPham s " +
+            var data = conn.getDataTable("select top 30 s.id,s.ten,s.giaKM,s.giaBan,s.luotxem,a.anh,s.soluong from SanPham s " +
                 "join (select * from AnhSanPham where id in (select max(id) from AnhSanPham group by sanphamId)) as a on s.id = a.sanphamId " +
                 "where ('" + Ssearch + "' = '' or s.ten like '%" + Ssearch + "%') and ( " + SloaiDienThoai + " = 0 or s.loaispId = " + SloaiDienThoai + ") " +
                 "and ( " + SNhaCungCap + " = 0 or s.nccId = " + SNhaCungCap + ") and (" + SGiaTu + " = 0 or s.giaban >= " + SGiaTu + ") and (" + SGiaDen + " = 0 or s.giaban <= " + SGiaDen + ")" +
@@ -60,6 +60,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
                 w = 0;
                 h = 20;
                 count = 0;
+
                 foreach (DataRow item in data.Rows)
                 {
 
@@ -69,8 +70,9 @@ namespace ShopDienThoai.GiaoDien.KhachHang
                     int giaKM = Int32.Parse(item[2].ToString());
                     int giaBan = Int32.Parse(item[3].ToString());
                     int luotxem = Int32.Parse(item[4].ToString());
+                    int sl = Int32.Parse(item[6].ToString());
                     string anh = item[5].ToString();
-                    createDienThoai(id, ten, giaKM, giaBan, luotxem, anh);
+                    createDienThoai(id, ten, giaKM, giaBan, luotxem, anh, sl);
 
 
                 }
@@ -126,16 +128,34 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             createSearchHeader(0, "Tất cả");
 
         }
+        //check hoa don 
+        private void CheckHoaDon()
+        {
+            var data = conn.getDataTable("select top 1 * from hoadon where khachhangId =" + LuuThongTin.id + " and trangthai =N'" + TrangThai.TaoPhieu + "'");
+            if (data.Rows.Count > 0)
+            {
+                IdHoaDon = Int32.Parse(data.Rows[0][0].ToString());
+            }
+            else
+            {
+                // khong co hoa dong nao
+                conn.ExecuteNonQuery("insert into hoadon (khachhangId, nhanvienId,ngaydat,noigiaohang,sdt,trangthai) values("
+                    + LuuThongTin.id + ",NULL,NULL,NULL,NULL,N'" + TrangThai.TaoPhieu + "')");
+                CheckHoaDon();
+            }
+        }
 
+        private void DatHang(int Id, int giaBan, int soLuong)
+        {
+            conn.ExecuteNonQuery("insert into chitiethoadon (hoadonId,sanphamId,dongia,soluong) values(" + IdHoaDon + "," + Id + "," + giaBan + "," + soLuong + ")");
+            MessageBox.Show("Thêm vào giỏ hàng thành công!", "Thông báo!");
+        }
         private void SearchHeader(int id)
         {
             SNhaCungCap = id;
             GetSanPham();
         }
-        private void DatHang(int id)
-        {
-            MessageBox.Show(id.ToString() + "1");
-        }
+
         private int XLoai = 0;
         private void CreateSearchLoai(int id, string ten)
         {
@@ -175,8 +195,8 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             SRomDen = 0;
             SManHinhTu = 0;
             SManHinhDen = 0;
-            orderBy = " order by giaban";
-            orderByType = " asc";
+            orderBy = " order by s.soluong";
+            orderByType = " desc";
             GetSanPham();
 
         }
@@ -208,12 +228,13 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         private int w = 0;
         private int h = 20;
         private int count = 0;
-        private void createDienThoai(int id, string tenSp, int giaKm, int giaBan, int luotxem, string anh)
+        private void createDienThoai(int id, string tenSp, int giaKm, int giaBan, int luotxem, string anh, int sl)
         {
 
             Panel panel = new Panel();
 
             PictureBox pic = new PictureBox();
+            Label hethang = new Label();
             Label ten = new Label();
             Label gia = new Label();
             Label giaGach = new Label();
@@ -244,6 +265,16 @@ namespace ShopDienThoai.GiaoDien.KhachHang
                   OpenChiTietSanPham(id);
               };
             panel.Location = new Point(20 + w, h);
+            //het hang 
+            if (sl == 0)
+            {
+                hethang.Text = lbHetHang.Text;
+                hethang.ForeColor = lbHetHang.ForeColor;
+                hethang.Location = lbHetHang.Location;
+                hethang.Font = lbHetHang.Font;
+                hethang.AutoSize = true;
+                panel.Controls.Add(hethang);
+            }
 
             // anh sp
             pic.Location = pictureMau.Location;
@@ -323,9 +354,13 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             button.IconChar = btnDatMau.IconChar;
             button.BackColor = btnDatMau.BackColor;
             button.ForeColor = btnDatMau.ForeColor;
+            if (sl == 0)
+            {
+                button.Enabled = false;
+            }
             button.Click += (object sender, EventArgs e) =>
             {
-                DatHang(id);
+                DatHang(id, giaKm, 1);
             };
             button.Size = btnDatMau.Size;
             button.Font = btnDatMau.Font;
@@ -346,7 +381,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
 
         private void OpenChiTietSanPham(int id)
         {
-            conn.ExecuteNonQuery("update sanpham set luotxem = luotxem +1 where id = " +id);
+            conn.ExecuteNonQuery("update sanpham set luotxem = luotxem +1 where id = " + id);
             panelSearchLoai.Visible = false;
             panelThu2.Visible = false;
             panelShowSP.Controls.Clear();
@@ -552,21 +587,21 @@ namespace ShopDienThoai.GiaoDien.KhachHang
 
         private void linkLabel8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            orderBy = "order by giaban";
+            orderBy = "order by s.giaban";
             orderByType = " asc";
             GetSanPham();
         }
 
         private void linkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            orderBy = "order by giaban";
+            orderBy = "order by s.giaban";
             orderByType = " desc";
             GetSanPham();
         }
         private bool checkLuotXem = true;
         private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            orderBy = "order by luotxem ";
+            orderBy = "order by s.luotxem ";
             orderByType = checkLuotXem ? " asc" : " desc";
             GetSanPham();
             checkLuotXem = !checkLuotXem;
