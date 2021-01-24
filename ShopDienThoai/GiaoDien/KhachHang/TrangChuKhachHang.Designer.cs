@@ -97,7 +97,6 @@ namespace ShopQuanAo.GiaoDien.KhachHang
             this.iconButton2.Size = new System.Drawing.Size(46, 31);
             this.iconButton2.TabIndex = 2;
             this.iconButton2.UseVisualStyleBackColor = true;
-            this.iconButton2.Visible = false;
             this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // iconButton1
@@ -241,14 +240,14 @@ namespace ShopQuanAo.GiaoDien.KhachHang
             this.panelPerent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPerent.Location = new System.Drawing.Point(0, 88);
             this.panelPerent.Name = "panelPerent";
-            this.panelPerent.Size = new System.Drawing.Size(1363, 693);
+            this.panelPerent.Size = new System.Drawing.Size(1363, 697);
             this.panelPerent.TabIndex = 2;
             // 
             // TrangChuKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1363, 781);
+            this.ClientSize = new System.Drawing.Size(1363, 785);
             this.ControlBox = false;
             this.Controls.Add(this.panelPerent);
             this.Controls.Add(this.panel2);

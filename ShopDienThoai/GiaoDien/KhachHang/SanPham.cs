@@ -45,7 +45,8 @@ namespace ShopDienThoai.GiaoDien.KhachHang
 
         private void GetSanPham()
         {
-
+            panelSearchLoai.Visible = true;
+            panelThu2.Visible = true;
             var data = conn.getDataTable("select top 30 s.id,s.ten,s.giaKM,s.giaBan,s.luotxem,a.anh from SanPham s " +
                 "join (select * from AnhSanPham where id in (select max(id) from AnhSanPham group by sanphamId)) as a on s.id = a.sanphamId " +
                 "where ('" + Ssearch + "' = '' or s.ten like '%" + Ssearch + "%') and ( " + SloaiDienThoai + " = 0 or s.loaispId = " + SloaiDienThoai + ") " +
@@ -346,8 +347,50 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         private void OpenChiTietSanPham(int id)
         {
             conn.ExecuteNonQuery("update sanpham set luotxem = luotxem +1 where id = " +id);
-            
+            panelSearchLoai.Visible = false;
+            panelThu2.Visible = false;
+            panelShowSP.Controls.Clear();
+            panelShowSP.AutoScroll = true;
+            // add panel
+            Panel panel = new Panel();
+            panel.Dock = DockStyle.Top;
+            panel.Size = new Size(0, 40);
+            panelShowSP.Controls.Add(panel);
 
+            IconButton btn = new IconButton();
+            btn.IconChar = IconChar.Backspace;
+            btn.Location = new Point(0, 0);
+            btn.IconSize = 25;
+            btn.Dock = DockStyle.Left;
+            btn.BackColor = Color.Green;
+            btn.ForeColor = Color.White;
+            btn.Text = "Trở lại";
+            btn.AutoSize = true;
+            btn.Click += (object s, EventArgs e) =>
+             {
+                 BackSanPham();
+             };
+            btn.Cursor = Cursors.Hand;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            panel.Controls.Add(btn);
+
+
+
+            // 
+            ChiTietSanPham childForm = new ChiTietSanPham(id);
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelShowSP.Controls.Add(childForm);
+            panelShowSP.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
+        private void BackSanPham()
+        {
+            GetSanPham();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

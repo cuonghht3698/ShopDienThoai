@@ -30,8 +30,9 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SanPham));
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panelSearchLoai = new System.Windows.Forms.Panel();
+            this.panelThu2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.linkRam4 = new System.Windows.Forms.LinkLabel();
@@ -57,22 +58,22 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.panelEmptySP = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.btnSLoaiSanPham = new FontAwesome.Sharp.IconButton();
             this.linkRam46 = new System.Windows.Forms.LinkLabel();
-            this.linkRam8 = new System.Windows.Forms.LinkLabel();
-            this.linkRom3264 = new System.Windows.Forms.LinkLabel();
-            this.linkRomAll = new System.Windows.Forms.LinkLabel();
-            this.linkRom32 = new System.Windows.Forms.LinkLabel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.linkLoaiAll = new System.Windows.Forms.LinkLabel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.linkRom512 = new System.Windows.Forms.LinkLabel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.linkLabel7 = new System.Windows.Forms.LinkLabel();
             this.linkLabel8 = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.linkRom512 = new System.Windows.Forms.LinkLabel();
+            this.linkLoaiAll = new System.Windows.Forms.LinkLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.linkRom3264 = new System.Windows.Forms.LinkLabel();
+            this.linkRomAll = new System.Windows.Forms.LinkLabel();
+            this.linkRom32 = new System.Windows.Forms.LinkLabel();
+            this.linkRam8 = new System.Windows.Forms.LinkLabel();
             this.linkGia3 = new System.Windows.Forms.LinkLabel();
             this.linkGia2 = new System.Windows.Forms.LinkLabel();
             this.linkGia4 = new System.Windows.Forms.LinkLabel();
@@ -82,9 +83,9 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.label1 = new System.Windows.Forms.Label();
             this.iconButton9 = new FontAwesome.Sharp.IconButton();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnSLoaiSanPham = new FontAwesome.Sharp.IconButton();
-            this.panel1.SuspendLayout();
             this.panelSearchLoai.SuspendLayout();
+            this.panelThu2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -95,23 +96,10 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.panelButtom.SuspendLayout();
             this.panelEmptySP.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panelSearchLoai);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1237, 847);
-            this.panel1.TabIndex = 0;
             // 
             // panelSearchLoai
             // 
@@ -122,6 +110,29 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.panelSearchLoai.Name = "panelSearchLoai";
             this.panelSearchLoai.Size = new System.Drawing.Size(1237, 50);
             this.panelSearchLoai.TabIndex = 1;
+            // 
+            // panelThu2
+            // 
+            this.panelThu2.Controls.Add(this.panel5);
+            this.panelThu2.Controls.Add(this.panel4);
+            this.panelThu2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelThu2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelThu2.Location = new System.Drawing.Point(0, 50);
+            this.panelThu2.Name = "panelThu2";
+            this.panelThu2.Size = new System.Drawing.Size(1237, 51);
+            this.panelThu2.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.panel7);
+            this.panel1.Controls.Add(this.panelThu2);
+            this.panel1.Controls.Add(this.panelSearchLoai);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1237, 847);
+            this.panel1.TabIndex = 0;
             // 
             // panel6
             // 
@@ -372,30 +383,28 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.panelButtom.Location = new System.Drawing.Point(0, 700);
             this.panelButtom.Name = "panelButtom";
             this.panelButtom.Size = new System.Drawing.Size(1106, 46);
-            this.panelButtom.TabIndex = 1;
+            this.panelButtom.TabIndex = 1000;
             // 
             // iconButton1
             // 
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Right;
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(1045, 0);
+            this.iconButton1.Location = new System.Drawing.Point(1000, 7);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(61, 46);
+            this.iconButton1.Size = new System.Drawing.Size(61, 37);
             this.iconButton1.TabIndex = 0;
             this.iconButton1.Text = "Next";
             this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // iconButton10
             // 
-            this.iconButton10.Dock = System.Windows.Forms.DockStyle.Right;
             this.iconButton10.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton10.IconColor = System.Drawing.Color.Black;
             this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton10.Location = new System.Drawing.Point(984, 0);
+            this.iconButton10.Location = new System.Drawing.Point(933, 7);
             this.iconButton10.Name = "iconButton10";
-            this.iconButton10.Size = new System.Drawing.Size(61, 46);
+            this.iconButton10.Size = new System.Drawing.Size(61, 37);
             this.iconButton10.TabIndex = 0;
             this.iconButton10.Text = "Prev";
             this.iconButton10.UseVisualStyleBackColor = true;
@@ -431,6 +440,24 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.panel7.Size = new System.Drawing.Size(1237, 746);
             this.panel7.TabIndex = 5;
             // 
+            // btnSLoaiSanPham
+            // 
+            this.btnSLoaiSanPham.BackColor = System.Drawing.Color.Red;
+            this.btnSLoaiSanPham.FlatAppearance.BorderSize = 0;
+            this.btnSLoaiSanPham.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSLoaiSanPham.Font = new System.Drawing.Font("Font Awesome 5 Free Regular", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSLoaiSanPham.ForeColor = System.Drawing.Color.White;
+            this.btnSLoaiSanPham.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnSLoaiSanPham.IconColor = System.Drawing.Color.Black;
+            this.btnSLoaiSanPham.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSLoaiSanPham.Location = new System.Drawing.Point(65, 2);
+            this.btnSLoaiSanPham.Name = "btnSLoaiSanPham";
+            this.btnSLoaiSanPham.Size = new System.Drawing.Size(86, 45);
+            this.btnSLoaiSanPham.TabIndex = 0;
+            this.btnSLoaiSanPham.Text = "Apple";
+            this.btnSLoaiSanPham.UseVisualStyleBackColor = false;
+            this.btnSLoaiSanPham.Visible = false;
+            // 
             // linkRam46
             // 
             this.linkRam46.AutoSize = true;
@@ -442,115 +469,6 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.linkRam46.TabStop = true;
             this.linkRam46.Text = "4GB - 6GB";
             this.linkRam46.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRam46_LinkClicked);
-            // 
-            // linkRam8
-            // 
-            this.linkRam8.AutoSize = true;
-            this.linkRam8.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.linkRam8.Location = new System.Drawing.Point(26, 120);
-            this.linkRam8.Name = "linkRam8";
-            this.linkRam8.Size = new System.Drawing.Size(64, 13);
-            this.linkRam8.TabIndex = 0;
-            this.linkRam8.TabStop = true;
-            this.linkRam8.Text = "8GB Trở lên";
-            this.linkRam8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRam8_LinkClicked);
-            // 
-            // linkRom3264
-            // 
-            this.linkRom3264.AutoSize = true;
-            this.linkRom3264.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.linkRom3264.Location = new System.Drawing.Point(26, 86);
-            this.linkRom3264.Name = "linkRom3264";
-            this.linkRom3264.Size = new System.Drawing.Size(79, 13);
-            this.linkRom3264.TabIndex = 0;
-            this.linkRom3264.TabStop = true;
-            this.linkRom3264.Text = "32GB và 64GB";
-            this.linkRom3264.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRom3264_LinkClicked);
-            // 
-            // linkRomAll
-            // 
-            this.linkRomAll.AutoSize = true;
-            this.linkRomAll.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.linkRomAll.Location = new System.Drawing.Point(21, 32);
-            this.linkRomAll.Name = "linkRomAll";
-            this.linkRomAll.Size = new System.Drawing.Size(38, 13);
-            this.linkRomAll.TabIndex = 0;
-            this.linkRomAll.TabStop = true;
-            this.linkRomAll.Text = "Tất cả";
-            this.linkRomAll.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRomAll_LinkClicked);
-            // 
-            // linkRom32
-            // 
-            this.linkRom32.AutoSize = true;
-            this.linkRom32.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.linkRom32.Location = new System.Drawing.Point(26, 62);
-            this.linkRom32.Name = "linkRom32";
-            this.linkRom32.Size = new System.Drawing.Size(59, 13);
-            this.linkRom32.TabIndex = 0;
-            this.linkRom32.TabStop = true;
-            this.linkRom32.Text = "Dưới 32GB";
-            this.linkRom32.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRom32_LinkClicked);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.linkLoaiAll);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(131, 138);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Loại điện thoại";
-            // 
-            // linkLoaiAll
-            // 
-            this.linkLoaiAll.AutoSize = true;
-            this.linkLoaiAll.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.linkLoaiAll.Location = new System.Drawing.Point(21, 28);
-            this.linkLoaiAll.Name = "linkLoaiAll";
-            this.linkLoaiAll.Size = new System.Drawing.Size(38, 13);
-            this.linkLoaiAll.TabIndex = 0;
-            this.linkLoaiAll.TabStop = true;
-            this.linkLoaiAll.Text = "Tất cả";
-            this.linkLoaiAll.Visible = false;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(0, 50);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1237, 51);
-            this.panel3.TabIndex = 2;
-            // 
-            // linkRom512
-            // 
-            this.linkRom512.AutoSize = true;
-            this.linkRom512.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.linkRom512.Location = new System.Drawing.Point(26, 144);
-            this.linkRom512.Name = "linkRom512";
-            this.linkRom512.Size = new System.Drawing.Size(65, 13);
-            this.linkRom512.TabIndex = 0;
-            this.linkRom512.TabStop = true;
-            this.linkRom512.Text = "Trên 512GB";
-            this.linkRom512.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRom512_LinkClicked);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panel5.Controls.Add(this.txtSearch);
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.linkLabel8);
-            this.panel5.Controls.Add(this.linkLabel7);
-            this.panel5.Controls.Add(this.linkLabel6);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(841, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(396, 51);
-            this.panel5.TabIndex = 3;
             // 
             // linkLabel6
             // 
@@ -628,6 +546,104 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.txtSearch.Size = new System.Drawing.Size(212, 29);
             this.txtSearch.TabIndex = 3;
             this.txtSearch.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel5.Controls.Add(this.txtSearch);
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Controls.Add(this.linkLabel8);
+            this.panel5.Controls.Add(this.linkLabel7);
+            this.panel5.Controls.Add(this.linkLabel6);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(841, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(396, 51);
+            this.panel5.TabIndex = 3;
+            // 
+            // linkRom512
+            // 
+            this.linkRom512.AutoSize = true;
+            this.linkRom512.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkRom512.Location = new System.Drawing.Point(26, 144);
+            this.linkRom512.Name = "linkRom512";
+            this.linkRom512.Size = new System.Drawing.Size(65, 13);
+            this.linkRom512.TabIndex = 0;
+            this.linkRom512.TabStop = true;
+            this.linkRom512.Text = "Trên 512GB";
+            this.linkRom512.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRom512_LinkClicked);
+            // 
+            // linkLoaiAll
+            // 
+            this.linkLoaiAll.AutoSize = true;
+            this.linkLoaiAll.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkLoaiAll.Location = new System.Drawing.Point(21, 28);
+            this.linkLoaiAll.Name = "linkLoaiAll";
+            this.linkLoaiAll.Size = new System.Drawing.Size(38, 13);
+            this.linkLoaiAll.TabIndex = 0;
+            this.linkLoaiAll.TabStop = true;
+            this.linkLoaiAll.Text = "Tất cả";
+            this.linkLoaiAll.Visible = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.linkLoaiAll);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(131, 138);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Loại điện thoại";
+            // 
+            // linkRom3264
+            // 
+            this.linkRom3264.AutoSize = true;
+            this.linkRom3264.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkRom3264.Location = new System.Drawing.Point(26, 86);
+            this.linkRom3264.Name = "linkRom3264";
+            this.linkRom3264.Size = new System.Drawing.Size(79, 13);
+            this.linkRom3264.TabIndex = 0;
+            this.linkRom3264.TabStop = true;
+            this.linkRom3264.Text = "32GB và 64GB";
+            this.linkRom3264.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRom3264_LinkClicked);
+            // 
+            // linkRomAll
+            // 
+            this.linkRomAll.AutoSize = true;
+            this.linkRomAll.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkRomAll.Location = new System.Drawing.Point(21, 32);
+            this.linkRomAll.Name = "linkRomAll";
+            this.linkRomAll.Size = new System.Drawing.Size(38, 13);
+            this.linkRomAll.TabIndex = 0;
+            this.linkRomAll.TabStop = true;
+            this.linkRomAll.Text = "Tất cả";
+            this.linkRomAll.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRomAll_LinkClicked);
+            // 
+            // linkRom32
+            // 
+            this.linkRom32.AutoSize = true;
+            this.linkRom32.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkRom32.Location = new System.Drawing.Point(26, 62);
+            this.linkRom32.Name = "linkRom32";
+            this.linkRom32.Size = new System.Drawing.Size(59, 13);
+            this.linkRom32.TabIndex = 0;
+            this.linkRom32.TabStop = true;
+            this.linkRom32.Text = "Dưới 32GB";
+            this.linkRom32.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRom32_LinkClicked);
+            // 
+            // linkRam8
+            // 
+            this.linkRam8.AutoSize = true;
+            this.linkRam8.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkRam8.Location = new System.Drawing.Point(26, 120);
+            this.linkRam8.Name = "linkRam8";
+            this.linkRam8.Size = new System.Drawing.Size(64, 13);
+            this.linkRam8.TabIndex = 0;
+            this.linkRam8.TabStop = true;
+            this.linkRam8.Text = "8GB Trở lên";
+            this.linkRam8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRam8_LinkClicked);
             // 
             // linkGia3
             // 
@@ -749,24 +765,6 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.panel4.Size = new System.Drawing.Size(841, 51);
             this.panel4.TabIndex = 2;
             // 
-            // btnSLoaiSanPham
-            // 
-            this.btnSLoaiSanPham.BackColor = System.Drawing.Color.Red;
-            this.btnSLoaiSanPham.FlatAppearance.BorderSize = 0;
-            this.btnSLoaiSanPham.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSLoaiSanPham.Font = new System.Drawing.Font("Font Awesome 5 Free Regular", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSLoaiSanPham.ForeColor = System.Drawing.Color.White;
-            this.btnSLoaiSanPham.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnSLoaiSanPham.IconColor = System.Drawing.Color.Black;
-            this.btnSLoaiSanPham.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSLoaiSanPham.Location = new System.Drawing.Point(65, 2);
-            this.btnSLoaiSanPham.Name = "btnSLoaiSanPham";
-            this.btnSLoaiSanPham.Size = new System.Drawing.Size(86, 45);
-            this.btnSLoaiSanPham.TabIndex = 0;
-            this.btnSLoaiSanPham.Text = "Apple";
-            this.btnSLoaiSanPham.UseVisualStyleBackColor = false;
-            this.btnSLoaiSanPham.Visible = false;
-            // 
             // SanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -778,8 +776,9 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.Name = "SanPham";
             this.Text = "SanPham";
             this.Load += new System.EventHandler(this.SanPham_Load);
-            this.panel1.ResumeLayout(false);
             this.panelSearchLoai.ResumeLayout(false);
+            this.panelThu2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -796,11 +795,10 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.panelEmptySP.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
@@ -809,6 +807,25 @@ namespace ShopDienThoai.GiaoDien.KhachHang
 
         #endregion
 
+        private System.Windows.Forms.Panel panelSearchLoai;
+        private FontAwesome.Sharp.IconButton btnSLoaiSanPham;
+        private System.Windows.Forms.Panel panelThu2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.LinkLabel linkLabel8;
+        private System.Windows.Forms.LinkLabel linkLabel7;
+        private System.Windows.Forms.LinkLabel linkLabel6;
+        private System.Windows.Forms.Panel panel4;
+        private FontAwesome.Sharp.IconButton iconButton9;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkGia6;
+        private System.Windows.Forms.LinkLabel linkGia5;
+        private System.Windows.Forms.LinkLabel linkGia1;
+        private System.Windows.Forms.LinkLabel linkGia4;
+        private System.Windows.Forms.LinkLabel linkGia2;
+        private System.Windows.Forms.LinkLabel linkGia3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panelShowSP;
@@ -843,24 +860,5 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         private System.Windows.Forms.LinkLabel linkRam4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.LinkLabel linkLoaiAll;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel linkLabel8;
-        private System.Windows.Forms.LinkLabel linkLabel7;
-        private System.Windows.Forms.LinkLabel linkLabel6;
-        private System.Windows.Forms.Panel panel4;
-        private FontAwesome.Sharp.IconButton iconButton9;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkGia6;
-        private System.Windows.Forms.LinkLabel linkGia5;
-        private System.Windows.Forms.LinkLabel linkGia1;
-        private System.Windows.Forms.LinkLabel linkGia4;
-        private System.Windows.Forms.LinkLabel linkGia2;
-        private System.Windows.Forms.LinkLabel linkGia3;
-        private System.Windows.Forms.Panel panelSearchLoai;
-        private FontAwesome.Sharp.IconButton btnSLoaiSanPham;
     }
 }
