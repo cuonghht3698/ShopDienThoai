@@ -179,5 +179,11 @@ namespace ShopQuanAo.GiaoDien.NhanVien
         {
             OpenForm(new QLDonHang());
         }
+
+        private void iconButton12_Click(object sender, EventArgs e)
+        {
+            OpenForm(new NhapHang());
+            
+        }
     }
 }

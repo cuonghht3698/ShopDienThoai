@@ -97,9 +97,9 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.label2.Font = new System.Drawing.Font("PMingLiU-ExtB", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(439, 7);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(340, 27);
+            this.label2.Size = new System.Drawing.Size(182, 27);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Phần mềm của tú != xinh gái";
+            this.label2.Text = "Tên phần mềm";
             this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label2_MouseDown);
             // 
             // lbTimeNow
@@ -278,6 +278,7 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.iconButton12.TabIndex = 2;
             this.iconButton12.Text = "Nhập kho";
             this.iconButton12.UseVisualStyleBackColor = false;
+            this.iconButton12.Click += new System.EventHandler(this.iconButton12_Click);
             // 
             // iconButton13
             // 

@@ -36,7 +36,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             txtDiaChi.ReadOnly = true;
             txtSDT.ReadOnly = true;
             btnTiepNhan.Visible = true;
-
+            txtGhiChu.ReadOnly = true;
 
         }
         private void label1_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             getGioHang();
             txtDiaChi.Text = LuuThongTin.diachi;
             txtSDT.Text = LuuThongTin.sdt;
-            if (LuuThongTin.role == "Khachhang" || LuuThongTin.role == "khachhang"  )
+            if (LuuThongTin.role == "Khachhang" || LuuThongTin.role == "khachhang")
             {
                 btnTiepNhan.Visible = false;
                 btnHuy.Text = "Huỷ đơn hàng";
@@ -64,7 +64,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
                 trang = TrangThai.TaoPhieu;
             }
 
-            return cn.getDataTable("select s.ten,ct.dongia,ct.soluong,a.anh,ct.id,(ct.soluong * ct.dongia) as 'ThanhTien', h.id,h.trangthai from HoaDon h join ChiTietHoaDon ct on h.id = ct.hoadonId join  SanPham s on ct.sanphamId = s.id join (select * from AnhSanPham where id in (select max(id) from AnhSanPham group by sanphamId)) as a on s.id = a.sanphamId " +
+            return cn.getDataTable("select s.ten,ct.dongia,ct.soluong,a.anh,ct.id,(ct.soluong * ct.dongia) as 'ThanhTien', h.id,h.trangthai,h.ghichu from HoaDon h join ChiTietHoaDon ct on h.id = ct.hoadonId join  SanPham s on ct.sanphamId = s.id join (select * from AnhSanPham where id in (select max(id) from AnhSanPham group by sanphamId)) as a on s.id = a.sanphamId " +
                 " where (" + FindId + " != 0 or h.khachhangId = " + LuuThongTin.id + ") and ('" + trang + "' = '' or h.trangthai = N'" + trang + "') and (" + FindId + " = 0 or h.id = " + FindId + ")");
         }
 
@@ -75,6 +75,11 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             {
                 panelEmpty.Visible = false;
                 lbTrangThaiHD.Text = dataHoaDon.Rows[0][7].ToString();
+                txtGhiChu.Text = dataHoaDon.Rows[0][8].ToString();
+                if (lbTrangThaiHD.Text == "Hủy")
+                {
+                    btnHuy.Visible = false;
+                }
                 IdHoaDong = Int32.Parse(dataHoaDon.Rows[0][6].ToString());
                 panelParent.Controls.Clear();
                 foreach (DataRow item in dataHoaDon.Rows)
