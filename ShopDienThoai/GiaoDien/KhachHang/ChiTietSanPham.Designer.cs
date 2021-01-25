@@ -50,6 +50,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lbMota = new System.Windows.Forms.Label();
             this.btnDatHang = new FontAwesome.Sharp.IconButton();
@@ -67,15 +68,14 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.picAnh1 = new System.Windows.Forms.PictureBox();
             this.picAnh2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAnhBig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAnh1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAnh2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -295,6 +295,17 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.panel1.Size = new System.Drawing.Size(262, 325);
             this.panel1.TabIndex = 9;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(260, 52);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -364,6 +375,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.txtSL.Size = new System.Drawing.Size(47, 29);
             this.txtSL.TabIndex = 5;
             this.txtSL.Text = "1";
+            this.txtSL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSL.TextChanged += new System.EventHandler(this.txtSL_TextChanged);
             // 
             // label5
@@ -485,17 +497,6 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.picAnh2.TabStop = false;
             this.picAnh2.Click += new System.EventHandler(this.picAnh2_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(260, 52);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // ChiTietSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -511,11 +512,11 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAnhBig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAnh1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAnh2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

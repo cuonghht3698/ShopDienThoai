@@ -148,7 +148,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             DateTime ngaynhap;
             string ten, mausac, manhinh, camera, cpu, ram, rom, baohanh, phukiendikem, mota;
             bool active;
-            id = Int32.Parse(txtMa.Text);
+            
             ten = txtTen.Text;
             soluong = 0;
             gianhap = Int32.Parse(txtGiaNhap.Text);

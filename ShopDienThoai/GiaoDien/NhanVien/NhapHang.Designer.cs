@@ -100,9 +100,9 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(170, 21);
+            this.txtSearch.Location = new System.Drawing.Point(94, 21);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(711, 32);
+            this.txtSearch.Size = new System.Drawing.Size(804, 32);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -124,11 +124,11 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 29);
+            this.label1.Location = new System.Drawing.Point(12, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 13);
+            this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Thông tin sản phẩm";
+            this.label1.Text = "Chọn sản phẩm";
             // 
             // btnThem
             // 
@@ -217,9 +217,9 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // 
             this.panelPickSP.AutoScroll = true;
             this.panelPickSP.Controls.Add(this.panelCon);
-            this.panelPickSP.Location = new System.Drawing.Point(170, 54);
+            this.panelPickSP.Location = new System.Drawing.Point(94, 54);
             this.panelPickSP.Name = "panelPickSP";
-            this.panelPickSP.Size = new System.Drawing.Size(728, 247);
+            this.panelPickSP.Size = new System.Drawing.Size(804, 247);
             this.panelPickSP.TabIndex = 38;
             // 
             // panelCon
@@ -239,7 +239,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.panelCon.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCon.Location = new System.Drawing.Point(0, 0);
             this.panelCon.Name = "panelCon";
-            this.panelCon.Size = new System.Drawing.Size(728, 63);
+            this.panelCon.Size = new System.Drawing.Size(804, 63);
             this.panelCon.TabIndex = 0;
             this.panelCon.Visible = false;
             // 
@@ -249,7 +249,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.panelFooterMau.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFooterMau.Location = new System.Drawing.Point(0, 53);
             this.panelFooterMau.Name = "panelFooterMau";
-            this.panelFooterMau.Size = new System.Drawing.Size(728, 10);
+            this.panelFooterMau.Size = new System.Drawing.Size(804, 10);
             this.panelFooterMau.TabIndex = 7;
             // 
             // lbSsl
@@ -290,7 +290,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // picSanh1
             // 
             this.picSanh1.Image = ((System.Drawing.Image)(resources.GetObject("picSanh1.Image")));
-            this.picSanh1.Location = new System.Drawing.Point(543, 0);
+            this.picSanh1.Location = new System.Drawing.Point(661, 0);
             this.picSanh1.Name = "picSanh1";
             this.picSanh1.Size = new System.Drawing.Size(62, 52);
             this.picSanh1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -300,7 +300,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // lbAnh
             // 
             this.lbAnh.AutoSize = true;
-            this.lbAnh.Location = new System.Drawing.Point(511, 4);
+            this.lbAnh.Location = new System.Drawing.Point(629, 4);
             this.lbAnh.Name = "lbAnh";
             this.lbAnh.Size = new System.Drawing.Size(26, 13);
             this.lbAnh.TabIndex = 1;

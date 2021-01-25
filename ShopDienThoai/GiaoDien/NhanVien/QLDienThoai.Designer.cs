@@ -242,7 +242,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.btnXoaAnh1.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnXoaAnh1.IconColor = System.Drawing.Color.Black;
             this.btnXoaAnh1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnXoaAnh1.Location = new System.Drawing.Point(133, 8);
+            this.btnXoaAnh1.Location = new System.Drawing.Point(119, 8);
             this.btnXoaAnh1.Name = "btnXoaAnh1";
             this.btnXoaAnh1.Size = new System.Drawing.Size(43, 30);
             this.btnXoaAnh1.TabIndex = 433;
@@ -256,7 +256,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.btnXoaAnh2.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnXoaAnh2.IconColor = System.Drawing.Color.Black;
             this.btnXoaAnh2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnXoaAnh2.Location = new System.Drawing.Point(133, 165);
+            this.btnXoaAnh2.Location = new System.Drawing.Point(119, 165);
             this.btnXoaAnh2.Name = "btnXoaAnh2";
             this.btnXoaAnh2.Size = new System.Drawing.Size(43, 29);
             this.btnXoaAnh2.TabIndex = 333;
@@ -392,6 +392,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.txtPhuKien.Location = new System.Drawing.Point(9, 186);
             this.txtPhuKien.Multiline = true;
             this.txtPhuKien.Name = "txtPhuKien";
+            this.txtPhuKien.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtPhuKien.Size = new System.Drawing.Size(229, 119);
             this.txtPhuKien.TabIndex = 18;
             // 
@@ -592,6 +593,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.txtMoTa.Location = new System.Drawing.Point(72, 184);
             this.txtMoTa.Multiline = true;
             this.txtMoTa.Name = "txtMoTa";
+            this.txtMoTa.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtMoTa.Size = new System.Drawing.Size(229, 119);
             this.txtMoTa.TabIndex = 1112;
             // 
@@ -645,6 +647,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.txtGiaKM.Name = "txtGiaKM";
             this.txtGiaKM.Size = new System.Drawing.Size(101, 20);
             this.txtGiaKM.TabIndex = 6;
+            this.txtGiaKM.Text = "0";
             // 
             // txtGiaBan
             // 
@@ -652,6 +655,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.txtGiaBan.Name = "txtGiaBan";
             this.txtGiaBan.Size = new System.Drawing.Size(101, 20);
             this.txtGiaBan.TabIndex = 4;
+            this.txtGiaBan.Text = "0";
             // 
             // label3
             // 
