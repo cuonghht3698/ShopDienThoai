@@ -37,6 +37,7 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             panelDropDown1.Visible = false;
             panelDropDown2.Visible = false;
             panelDropDown3.Visible = false;
+            panelDrop4.Visible = false;
         }
 
 
@@ -166,6 +167,17 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.Visible = false;
             DangNhap dk = new DangNhap();
             dk.ShowDialog();
+        }
+
+        private void iconButton16_Click(object sender, EventArgs e)
+        {
+            ClosePanel();
+            panelDrop4.Visible = true;
+        }
+
+        private void iconButton7_Click(object sender, EventArgs e)
+        {
+            OpenForm(new QLDonHang());
         }
     }
 }

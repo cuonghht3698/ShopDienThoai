@@ -46,6 +46,7 @@ namespace ShopQuanAo.GiaoDien.KhachHang
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.panelPerent = new System.Windows.Forms.Panel();
+            this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -188,6 +189,7 @@ namespace ShopQuanAo.GiaoDien.KhachHang
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel3.Controls.Add(this.iconButton7);
             this.panel3.Controls.Add(this.iconButton6);
             this.panel3.Controls.Add(this.iconButton5);
             this.panel3.Controls.Add(this.iconButton4);
@@ -206,8 +208,9 @@ namespace ShopQuanAo.GiaoDien.KhachHang
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Size = new System.Drawing.Size(128, 45);
             this.iconButton6.TabIndex = 0;
-            this.iconButton6.Text = "iconButton4";
+            this.iconButton6.Text = "Quản lý tài khoản";
             this.iconButton6.UseVisualStyleBackColor = true;
+            this.iconButton6.Click += new System.EventHandler(this.iconButton6_Click);
             // 
             // iconButton5
             // 
@@ -242,6 +245,19 @@ namespace ShopQuanAo.GiaoDien.KhachHang
             this.panelPerent.Name = "panelPerent";
             this.panelPerent.Size = new System.Drawing.Size(1363, 697);
             this.panelPerent.TabIndex = 2;
+            // 
+            // iconButton7
+            // 
+            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton7.IconColor = System.Drawing.Color.Black;
+            this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton7.Location = new System.Drawing.Point(405, 6);
+            this.iconButton7.Name = "iconButton7";
+            this.iconButton7.Size = new System.Drawing.Size(128, 45);
+            this.iconButton7.TabIndex = 1;
+            this.iconButton7.Text = "Lịch sử muc hàng";
+            this.iconButton7.UseVisualStyleBackColor = true;
+            this.iconButton7.Click += new System.EventHandler(this.iconButton7_Click);
             // 
             // TrangChuKhachHang
             // 
@@ -285,5 +301,6 @@ namespace ShopQuanAo.GiaoDien.KhachHang
         private FontAwesome.Sharp.IconButton iconButton5;
         private FontAwesome.Sharp.IconButton iconButton4;
         private System.Windows.Forms.Panel panelPerent;
+        private FontAwesome.Sharp.IconButton iconButton7;
     }
 }

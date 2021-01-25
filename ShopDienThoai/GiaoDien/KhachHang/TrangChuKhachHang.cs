@@ -88,5 +88,16 @@ namespace ShopQuanAo.GiaoDien.KhachHang
         {
             OpenForm(new GioHang());
         }
+
+        private void iconButton6_Click(object sender, EventArgs e)
+        {
+            OpenForm(new TaiKhoan());
+
+        }
+
+        private void iconButton7_Click(object sender, EventArgs e)
+        {
+            OpenForm(new DanhSachDonDatHang());
+        }
     }
 }

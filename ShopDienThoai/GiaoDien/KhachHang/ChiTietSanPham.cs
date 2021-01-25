@@ -52,13 +52,13 @@ namespace ShopDienThoai.GiaoDien.KhachHang
                 lbTen.Text = data.Rows[0][1].ToString() + " - " + data.Rows[0][10].ToString() + " GB";
                 if (data.Rows[0][4].ToString() == "0")
                 {
-                    lbGiaKM.Text = data.Rows[0][3].ToString() + " đồng";
+                    lbGiaKM.Text = String.Format("{0:#,##0.##}", Int32.Parse(data.Rows[0][3].ToString())) + " đồng";
                     giaban = Int32.Parse(data.Rows[0][3].ToString());
                 }
                 else
                 {
-                    lbGiaKM.Text = data.Rows[0][4].ToString() + " đồng";
-                    lbgiaBan.Text = data.Rows[0][3].ToString() + " đồng";
+                    lbGiaKM.Text = String.Format("{0:#,##0.##}", Int32.Parse(data.Rows[0][4].ToString()))  + " đồng";
+                    lbgiaBan.Text = String.Format("{0:#,##0.##}", Int32.Parse(data.Rows[0][3].ToString())) + " đồng";
                     giaban = Int32.Parse(data.Rows[0][4].ToString());
 
                 }
@@ -111,7 +111,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             {
                 txtSL.Text = (Int32.Parse(txtSL.Text) - 1).ToString();
                 soluong = Int32.Parse(txtSL.Text);
-                lbTienChu.Text = Ham.ChuyenSo((giaban * soluong).ToString()) + " đồng";
+                lbTienChu.Text =  Ham.ChuyenSo((giaban * soluong).ToString()) + " đồng";
             }
         }
 

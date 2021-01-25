@@ -47,15 +47,18 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         {
             panelSearchLoai.Visible = true;
             panelThu2.Visible = true;
+            checkBoLoc();
             var data = conn.getDataTable("select top 30 s.id,s.ten,s.giaKM,s.giaBan,s.luotxem,a.anh,s.soluong from SanPham s " +
                 "join (select * from AnhSanPham where id in (select max(id) from AnhSanPham group by sanphamId)) as a on s.id = a.sanphamId " +
                 "where ('" + Ssearch + "' = '' or s.ten like '%" + Ssearch + "%') and ( " + SloaiDienThoai + " = 0 or s.loaispId = " + SloaiDienThoai + ") " +
                 "and ( " + SNhaCungCap + " = 0 or s.nccId = " + SNhaCungCap + ") and (" + SGiaTu + " = 0 or s.giaban >= " + SGiaTu + ") and (" + SGiaDen + " = 0 or s.giaban <= " + SGiaDen + ")" +
                 " and (" + SRamTu + " = 0 or s.ram >= " + SRamTu + ") " +
                 "and (" + SRamDen + " = 0 or s.ram <= " + SRamDen + ") and (" + SRomTu + " = 0 or s.rom >= " + SRomTu + ")  and (" + SRomDen + " = 0 or s.rom <= " + SRomDen + ") " +
-                "and (" + SManHinhTu + " = 0 or s.manhinh >= " + SManHinhTu + ")  and (" + SManHinhDen + " = 0 or s.manhinh <= " + SManHinhDen + ") " + orderBy + orderByType);
+                "and (" + SManHinhTu + " = 0 or s.manhinh >= " + SManHinhTu + ")  and (" + SManHinhDen + " = 0 or s.manhinh <= " + SManHinhDen + ") and active = 1 " + orderBy + orderByType);
+            lbTong.Text = data.Rows.Count.ToString();
             if (data.Rows.Count > 0)
             {
+                
                 panelShowSP.Controls.Clear();
                 w = 0;
                 h = 20;
@@ -89,6 +92,20 @@ namespace ShopDienThoai.GiaoDien.KhachHang
 
 
         }
+
+        private void checkBoLoc()
+        {
+            if (Ssearch != "" || SNhaCungCap != 0 || SGiaTu != 0 || SGiaDen != 0 || SloaiDienThoai != 0 || SRamTu != 0 || SRamDen != 0 || SRomTu != 0 || SRomDen != 0 || SManHinhTu != 0 || SManHinhDen != 0 || SManHinhDen != 0 || orderBy != " order by s.soluong" || orderByType != " desc")
+            {
+                btnBoLoc.Visible = true;
+            }
+            else
+            {
+                btnBoLoc.Visible = false;
+
+            }
+        }
+
         private void SearchGia(int tu, int den)
         {
             SGiaTu = tu;
@@ -308,7 +325,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
                 giaGach.Location = lbGiaGachMau.Location;
                 giaGach.Font = lbGiaGachMau.Font;
                 giaGach.ForeColor = lbGiaGachMau.ForeColor;
-                giaGach.Text = giaBan + " đ";
+                giaGach.Text = String.Format("{0:#,##0.##}", giaBan) + " đ";
                 giaGach.Click += (object s, EventArgs e) =>
                 {
                     OpenChiTietSanPham(id);
@@ -317,8 +334,9 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             }
             gia.Location = lbGiaMau.Location;
             gia.Font = lbGiaMau.Font;
+            gia.AutoSize = true;
             gia.ForeColor = lbGiaMau.ForeColor;
-            gia.Text = giaKm + " đ";
+            gia.Text = String.Format("{0:#,##0.##}", giaKm) + " đ";
             gia.Click += (object s, EventArgs e) =>
             {
                 OpenChiTietSanPham(id);

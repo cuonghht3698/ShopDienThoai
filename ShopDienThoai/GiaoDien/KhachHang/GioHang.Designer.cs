@@ -46,9 +46,9 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.label5 = new System.Windows.Forms.Label();
             this.panelEmpty = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panelParent = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtGhiChu = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panelParent = new System.Windows.Forms.Panel();
             this.panelEmpty.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelParent.SuspendLayout();
@@ -75,6 +75,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.btnTiepNhan.TabIndex = 7;
             this.btnTiepNhan.Text = "Tiếp nhận và giao hàng";
             this.btnTiepNhan.UseVisualStyleBackColor = false;
+            this.btnTiepNhan.Click += new System.EventHandler(this.btnTiepNhan_Click);
             // 
             // btnHuy
             // 
@@ -85,6 +86,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.btnHuy.TabIndex = 6;
             this.btnHuy.Text = "Từ chối đơn hàng";
             this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click_1);
             // 
             // lbTongTienChu
             // 
@@ -238,16 +240,14 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.panel2.Size = new System.Drawing.Size(358, 607);
             this.panel2.TabIndex = 3;
             // 
-            // panelParent
+            // txtGhiChu
             // 
-            this.panelParent.AutoScroll = true;
-            this.panelParent.Controls.Add(this.panelEmpty);
-            this.panelParent.Controls.Add(this.panel3);
-            this.panelParent.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelParent.Location = new System.Drawing.Point(0, 0);
-            this.panelParent.Name = "panelParent";
-            this.panelParent.Size = new System.Drawing.Size(658, 607);
-            this.panelParent.TabIndex = 2;
+            this.txtGhiChu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGhiChu.Location = new System.Drawing.Point(54, 239);
+            this.txtGhiChu.Multiline = true;
+            this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.Size = new System.Drawing.Size(272, 81);
+            this.txtGhiChu.TabIndex = 1;
             // 
             // label6
             // 
@@ -259,14 +259,16 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.label6.TabIndex = 0;
             this.label6.Text = "Ghi chú";
             // 
-            // txtGhiChu
+            // panelParent
             // 
-            this.txtGhiChu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGhiChu.Location = new System.Drawing.Point(54, 239);
-            this.txtGhiChu.Multiline = true;
-            this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(272, 81);
-            this.txtGhiChu.TabIndex = 1;
+            this.panelParent.AutoScroll = true;
+            this.panelParent.Controls.Add(this.panelEmpty);
+            this.panelParent.Controls.Add(this.panel3);
+            this.panelParent.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelParent.Location = new System.Drawing.Point(0, 0);
+            this.panelParent.Name = "panelParent";
+            this.panelParent.Size = new System.Drawing.Size(658, 607);
+            this.panelParent.TabIndex = 2;
             // 
             // GioHang
             // 

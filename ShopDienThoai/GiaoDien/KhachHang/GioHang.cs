@@ -49,6 +49,12 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             getGioHang();
             txtDiaChi.Text = LuuThongTin.diachi;
             txtSDT.Text = LuuThongTin.sdt;
+            if (LuuThongTin.role == "Khachhang" || LuuThongTin.role == "khachhang"  )
+            {
+                btnTiepNhan.Visible = false;
+                btnHuy.Text = "Huỷ đơn hàng";
+
+            }
         }
         private DataTable TruyVan()
         {
@@ -346,7 +352,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         }
         private void GiaoHang()
         {
-            cn.ExecuteNonQuery("update hoadon set nhanvienId = " + LuuThongTin.id + "', trangthai =N'" + TrangThai.GiaoHang + "' where id = " + FindId);
+            cn.ExecuteNonQuery("update hoadon set nhanvienId = " + LuuThongTin.id + ", trangthai =N'" + TrangThai.GiaoHang + "' where id = " + FindId);
             MessageBox.Show("Tiếp nhận đơn hàng thành công??");
             getGioHang();
             UpdateTienChu();
@@ -376,6 +382,11 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         private void btnDatHang_Click(object sender, EventArgs e)
         {
             datHang();
+        }
+
+        private void btnHuy_Click_1(object sender, EventArgs e)
+        {
+            HuyDon();
         }
     }
 }
