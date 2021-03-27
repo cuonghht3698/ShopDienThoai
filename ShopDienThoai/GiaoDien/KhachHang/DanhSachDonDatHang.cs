@@ -61,9 +61,6 @@ namespace ShopDienThoai.GiaoDien.KhachHang
                 panelCha.Controls.Add(panel1);
                 panel1.Visible = true;
                 openChildForm(new GioHang(id));
-             
-
-
             }
             else if (e.ColumnIndex == 1 && e.RowIndex != -1)
             {

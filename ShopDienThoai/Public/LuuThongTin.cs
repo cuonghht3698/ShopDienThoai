@@ -18,6 +18,8 @@ namespace ShopQuanAo.Public
         public static string matkhau;
         public static int roleId;
         public static string role;
+        public static string email;
+
     }
     public static class TrangThai
     {

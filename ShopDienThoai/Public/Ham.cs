@@ -226,5 +226,22 @@ namespace ShopQuanAo.Public
             y = date.Year.ToString();
             return y + m + d;
         }
+
+
+        public static string RamdomCode(int length)
+        {
+            Random ran = new Random();
+
+            String b = "abcdefghijklmnopqrstuvwxyz".ToUpper();
+
+            String random = "";
+
+            for (int i = 0; i < length; i++)
+            {
+                int a = ran.Next(26);
+                random = random + b.ElementAt(a);
+            }
+            return random;
+        }
     }
 }

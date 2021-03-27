@@ -149,6 +149,12 @@
     <Compile Include="GiaoDien\NhanVien\QLNhanVien.Designer.cs">
       <DependentUpon>QLNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiaoDien\NhanVien\TonKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\NhanVien\TonKho.Designer.cs">
+      <DependentUpon>TonKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="GiaoDien\NhanVien\TrangChuNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,8 +173,15 @@
     <Compile Include="GiaoDien\User\DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiaoDien\User\QuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\User\QuenMatKhau.Designer.cs">
+      <DependentUpon>QuenMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Public\Email.cs" />
     <Compile Include="Public\getData.cs" />
     <Compile Include="Public\Ham.cs" />
     <Compile Include="Public\LuuThongTin.cs" />
@@ -215,6 +228,9 @@
     <EmbeddedResource Include="GiaoDien\NhanVien\QLNhanVien.resx">
       <DependentUpon>QLNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDien\NhanVien\TonKho.resx">
+      <DependentUpon>TonKho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GiaoDien\NhanVien\TrangChuNhanVien.resx">
       <DependentUpon>TrangChuNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoDien\User\DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDien\User\QuenMatKhau.resx">
+      <DependentUpon>QuenMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

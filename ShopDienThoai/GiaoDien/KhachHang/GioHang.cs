@@ -1,4 +1,5 @@
-﻿using ShopQuanAo.Public;
+﻿using ShopDienThoai.Public;
+using ShopQuanAo.Public;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,8 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         private DataTable dataHoaDon;
         private int FindId = 0;
         private string TrangThaiHD;
+        private string emailKh = "";
+        private string noidungEmail = "";
         public GioHang()
         {
             InitializeComponent();
@@ -64,7 +67,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
                 trang = TrangThai.TaoPhieu;
             }
 
-            return cn.getDataTable("select s.ten,ct.dongia,ct.soluong,a.anh,ct.id,(ct.soluong * ct.dongia) as 'ThanhTien', h.id,h.trangthai,h.ghichu from HoaDon h join ChiTietHoaDon ct on h.id = ct.hoadonId join  SanPham s on ct.sanphamId = s.id join (select * from AnhSanPham where id in (select max(id) from AnhSanPham group by sanphamId)) as a on s.id = a.sanphamId " +
+            return cn.getDataTable("select s.ten,ct.dongia,ct.soluong,a.anh,ct.id,(ct.soluong * ct.dongia) as 'ThanhTien', h.id,h.trangthai,h.ghichu,u.email from HoaDon h join htuser u on u.Id = h.khachhangId join ChiTietHoaDon ct on h.id = ct.hoadonId join  SanPham s on ct.sanphamId = s.id join (select * from AnhSanPham where id in (select max(id) from AnhSanPham group by sanphamId)) as a on s.id = a.sanphamId " +
                 " where (" + FindId + " != 0 or h.khachhangId = " + LuuThongTin.id + ") and ('" + trang + "' = '' or h.trangthai = N'" + trang + "') and (" + FindId + " = 0 or h.id = " + FindId + ")");
         }
 
@@ -76,18 +79,23 @@ namespace ShopDienThoai.GiaoDien.KhachHang
                 panelEmpty.Visible = false;
                 lbTrangThaiHD.Text = dataHoaDon.Rows[0][7].ToString();
                 txtGhiChu.Text = dataHoaDon.Rows[0][8].ToString();
+                emailKh = dataHoaDon.Rows[0][9].ToString();
                 if (lbTrangThaiHD.Text == "Hủy")
                 {
                     btnHuy.Visible = false;
                 }
                 IdHoaDong = Int32.Parse(dataHoaDon.Rows[0][6].ToString());
                 panelParent.Controls.Clear();
+                noidungEmail = "Đơn hàng của bạn đã được đặt hàng thành công <br />";
                 foreach (DataRow item in dataHoaDon.Rows)
                 {
                     thanhtien += Int32.Parse(item[5].ToString());
-
+                    noidungEmail += "Đơn hàng : " + item[0].ToString() + " Số lương: " + item[2].ToString() + "<br />"; 
                     addRow(item);
                 }
+                noidungEmail += "Tổng hóa đơn: " + thanhtien + " đồng <br />";
+                noidungEmail += "Cảm ơn bạn đã ủng hộ, chúng tôi sẽ giao hàng sớm nhất có thê! ^^";
+
                 lbTongTien.Text = thanhtien.ToString();
                 lbTongTienChu.Text = "( " + Ham.ChuyenSo(thanhtien.ToString()) + " đồng )";
 
@@ -329,7 +337,11 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             try
             {
                 DateTime ngaydat = DateTime.Now;
-                cn.ExecuteNonQuery("UPDATE hoadon set noigiaohang = N'" + txtDiaChi.Text + "', sdt = '" + txtSDT.Text + "', ngaydat = '" + ngaydat.ToString() + "',ghichu = N'" + txtGhiChu.Text +"', trangthai =N'Chờ duyệt' where id =" + IdHoaDong);
+                cn.ExecuteNonQuery("UPDATE hoadon set noigiaohang = N'" + txtDiaChi.Text + "', sdt = '" + txtSDT.Text + "', ngaydat = '" + Ham.GetDate(ngaydat) + "',ghichu = N'" + txtGhiChu.Text +"', trangthai =N'Chờ duyệt' where id =" + IdHoaDong);
+                string email = LuuThongTin.email;
+                string TieuDe = "Đặt hàng thành công";
+                string NoiDung = noidungEmail;
+                Email.Send(email, TieuDe, NoiDung);
                 MessageBox.Show("Đặt hàng thành công! Chúng tôi sẽ liên hệ với bạn!", "Thông báo");
                 panelParent.Controls.Clear();
 
@@ -382,6 +394,10 @@ namespace ShopDienThoai.GiaoDien.KhachHang
         private void btnTiepNhan_Click(object sender, EventArgs e)
         {
             GiaoHang();
+            string email = emailKh;
+            string TieuDe = "Đơn hàng của bạn đã được xác nhận đóng gói và giao hàng!";
+            string NoiDung = noidungEmail + "<br /> Chúng tôi sẽ giao hàng sớm nhất có thể, Mong bạn bạn để ý điện thoại! Chúng tôi sẽ liên lạc! ^^  Cảm ơn!";
+            Email.Send(email, TieuDe, NoiDung);
         }
 
         private void btnDatHang_Click(object sender, EventArgs e)

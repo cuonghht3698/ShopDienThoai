@@ -185,5 +185,10 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             OpenForm(new NhapHang());
             
         }
+
+        private void iconButton18_Click(object sender, EventArgs e)
+        {
+            OpenForm(new TonKho());
+        }
     }
 }

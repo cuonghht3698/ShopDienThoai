@@ -278,6 +278,7 @@ namespace ShopDienThoai.GiaoDien.KhachHang
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelParent);
             this.Name = "GioHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GioHang";
             this.Load += new System.EventHandler(this.GioHang_Load);
             this.panelEmpty.ResumeLayout(false);

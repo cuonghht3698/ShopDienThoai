@@ -42,15 +42,18 @@ namespace ShopQuanAo.GiaoDien.User
             this.lbLoginFailed = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(202, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(197, 53);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(112, 101);
+            this.pictureBox1.Size = new System.Drawing.Size(112, 82);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 43;
             this.pictureBox1.TabStop = false;
@@ -59,9 +62,9 @@ namespace ShopQuanAo.GiaoDien.User
             // 
             this.label3.Font = new System.Drawing.Font("Segoe Print", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Fuchsia;
-            this.label3.Location = new System.Drawing.Point(320, 12);
+            this.label3.Location = new System.Drawing.Point(315, 53);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(249, 101);
+            this.label3.Size = new System.Drawing.Size(249, 82);
             this.label3.TabIndex = 39;
             this.label3.Text = "Đăng nhập";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -88,6 +91,7 @@ namespace ShopQuanAo.GiaoDien.User
             this.btnQuenMatKhau.TabIndex = 41;
             this.btnQuenMatKhau.TabStop = true;
             this.btnQuenMatKhau.Text = "Quên mật khẩu?";
+            this.btnQuenMatKhau.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnQuenMatKhau_LinkClicked);
             // 
             // btnDangNhap
             // 
@@ -170,6 +174,32 @@ namespace ShopQuanAo.GiaoDien.User
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // iconButton2
+            // 
+            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
+            this.iconButton2.IconColor = System.Drawing.Color.DarkRed;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 30;
+            this.iconButton2.Location = new System.Drawing.Point(723, 0);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(46, 47);
+            this.iconButton2.TabIndex = 47;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.iconButton2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(769, 47);
+            this.panel1.TabIndex = 48;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
             // DangNhap
             // 
             this.AcceptButton = this.btnDangNhap;
@@ -178,6 +208,8 @@ namespace ShopQuanAo.GiaoDien.User
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(769, 553);
+            this.ControlBox = false;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbLoginFailed);
@@ -197,6 +229,7 @@ namespace ShopQuanAo.GiaoDien.User
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.DangNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,5 +249,7 @@ namespace ShopQuanAo.GiaoDien.User
         private System.Windows.Forms.Label lbLoginFailed;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

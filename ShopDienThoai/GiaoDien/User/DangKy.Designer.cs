@@ -51,6 +51,8 @@ namespace ShopQuanAo.GiaoDien.User
             this.label9 = new System.Windows.Forms.Label();
             this.lbQuyen = new System.Windows.Forms.Label();
             this.cbQuyen = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +81,7 @@ namespace ShopQuanAo.GiaoDien.User
             // 
             this.btnDangKy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDangKy.Font = new System.Drawing.Font("MV Boli", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangKy.Location = new System.Drawing.Point(132, 553);
+            this.btnDangKy.Location = new System.Drawing.Point(132, 598);
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(347, 56);
             this.btnDangKy.TabIndex = 51;
@@ -108,7 +110,7 @@ namespace ShopQuanAo.GiaoDien.User
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(132, 146);
+            this.label2.Location = new System.Drawing.Point(40, 172);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 23);
             this.label2.TabIndex = 44;
@@ -118,7 +120,7 @@ namespace ShopQuanAo.GiaoDien.User
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(132, 85);
+            this.label1.Location = new System.Drawing.Point(40, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 23);
             this.label1.TabIndex = 45;
@@ -136,7 +138,7 @@ namespace ShopQuanAo.GiaoDien.User
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(132, 268);
+            this.label4.Location = new System.Drawing.Point(40, 294);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 23);
             this.label4.TabIndex = 53;
@@ -146,7 +148,7 @@ namespace ShopQuanAo.GiaoDien.User
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(132, 329);
+            this.label5.Location = new System.Drawing.Point(40, 378);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 23);
             this.label5.TabIndex = 53;
@@ -155,7 +157,7 @@ namespace ShopQuanAo.GiaoDien.User
             // txtDiaChi
             // 
             this.txtDiaChi.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiaChi.Location = new System.Drawing.Point(132, 355);
+            this.txtDiaChi.Location = new System.Drawing.Point(132, 406);
             this.txtDiaChi.Multiline = true;
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(194, 82);
@@ -165,7 +167,7 @@ namespace ShopQuanAo.GiaoDien.User
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(128, 440);
+            this.label6.Location = new System.Drawing.Point(128, 489);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(120, 23);
             this.label6.TabIndex = 53;
@@ -174,7 +176,7 @@ namespace ShopQuanAo.GiaoDien.User
             // txtSDT
             // 
             this.txtSDT.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSDT.Location = new System.Drawing.Point(132, 466);
+            this.txtSDT.Location = new System.Drawing.Point(132, 515);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(194, 32);
             this.txtSDT.TabIndex = 54;
@@ -186,7 +188,7 @@ namespace ShopQuanAo.GiaoDien.User
             this.cbGioiTinh.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cbGioiTinh.Location = new System.Drawing.Point(333, 355);
+            this.cbGioiTinh.Location = new System.Drawing.Point(329, 429);
             this.cbGioiTinh.Name = "cbGioiTinh";
             this.cbGioiTinh.Size = new System.Drawing.Size(150, 33);
             this.cbGioiTinh.TabIndex = 55;
@@ -195,7 +197,7 @@ namespace ShopQuanAo.GiaoDien.User
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(332, 329);
+            this.label7.Location = new System.Drawing.Point(332, 403);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(85, 23);
             this.label7.TabIndex = 53;
@@ -205,16 +207,16 @@ namespace ShopQuanAo.GiaoDien.User
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(132, 207);
+            this.label8.Location = new System.Drawing.Point(40, 247);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(161, 23);
+            this.label8.Size = new System.Drawing.Size(80, 23);
             this.label8.TabIndex = 44;
-            this.label8.Text = "Nhập lại mật khẩu";
+            this.label8.Text = "Nhập lại";
             // 
             // txtMatKhau2
             // 
             this.txtMatKhau2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMatKhau2.Location = new System.Drawing.Point(132, 233);
+            this.txtMatKhau2.Location = new System.Drawing.Point(132, 247);
             this.txtMatKhau2.Name = "txtMatKhau2";
             this.txtMatKhau2.PasswordChar = '*';
             this.txtMatKhau2.Size = new System.Drawing.Size(351, 32);
@@ -224,7 +226,7 @@ namespace ShopQuanAo.GiaoDien.User
             // 
             this.dateNgaySinh.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateNgaySinh.Location = new System.Drawing.Point(332, 466);
+            this.dateNgaySinh.Location = new System.Drawing.Point(332, 515);
             this.dateNgaySinh.Name = "dateNgaySinh";
             this.dateNgaySinh.Size = new System.Drawing.Size(147, 32);
             this.dateNgaySinh.TabIndex = 56;
@@ -233,7 +235,7 @@ namespace ShopQuanAo.GiaoDien.User
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(332, 440);
+            this.label9.Location = new System.Drawing.Point(332, 489);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(92, 23);
             this.label9.TabIndex = 53;
@@ -243,7 +245,7 @@ namespace ShopQuanAo.GiaoDien.User
             // 
             this.lbQuyen.AutoSize = true;
             this.lbQuyen.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbQuyen.Location = new System.Drawing.Point(128, 514);
+            this.lbQuyen.Location = new System.Drawing.Point(128, 563);
             this.lbQuyen.Name = "lbQuyen";
             this.lbQuyen.Size = new System.Drawing.Size(64, 23);
             this.lbQuyen.TabIndex = 57;
@@ -255,18 +257,36 @@ namespace ShopQuanAo.GiaoDien.User
             this.cbQuyen.FormattingEnabled = true;
             this.cbQuyen.Items.AddRange(new object[] {
             "Chọn quyền"});
-            this.cbQuyen.Location = new System.Drawing.Point(198, 509);
+            this.cbQuyen.Location = new System.Drawing.Point(198, 558);
             this.cbQuyen.Name = "cbQuyen";
             this.cbQuyen.Size = new System.Drawing.Size(150, 33);
             this.cbQuyen.TabIndex = 55;
             this.cbQuyen.SelectedIndexChanged += new System.EventHandler(this.cbQuyen_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(40, 349);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(60, 23);
+            this.label10.TabIndex = 53;
+            this.label10.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(132, 346);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(351, 32);
+            this.txtEmail.TabIndex = 54;
             // 
             // DangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(578, 621);
+            this.ClientSize = new System.Drawing.Size(578, 666);
             this.Controls.Add(this.lbQuyen);
             this.Controls.Add(this.dateNgaySinh);
             this.Controls.Add(this.cbQuyen);
@@ -276,8 +296,10 @@ namespace ShopQuanAo.GiaoDien.User
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtHoTen);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
@@ -325,5 +347,7 @@ namespace ShopQuanAo.GiaoDien.User
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lbQuyen;
         private System.Windows.Forms.ComboBox cbQuyen;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtEmail;
     }
 }

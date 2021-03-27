@@ -53,7 +53,7 @@ namespace ShopQuanAo.GiaoDien.User
         {
             try
             {
-                string ten, ngaysinh, sdt, quequan, username, password;
+                string ten, ngaysinh, sdt, quequan, username, password,email;
                
                 bool active = true;
                 bool gioitinh;
@@ -64,7 +64,7 @@ namespace ShopQuanAo.GiaoDien.User
                 quequan = txtDiaChi.Text;
                 username = txtTaiKhoan.Text;
                 password = Ham.EncodePassword(txtMatKhau.Text);
-
+                email = txtEmail.Text;
                 if (!String.IsNullOrEmpty(txtHoTen.Text) && !String.IsNullOrEmpty(txtMatKhau.Text) && !String.IsNullOrEmpty(txtTaiKhoan.Text))
                 {
                     if (txtMatKhau2.Text == txtMatKhau.Text)
@@ -75,8 +75,8 @@ namespace ShopQuanAo.GiaoDien.User
                         }
                         else
                         {
-                            string sql = "Insert into HTUser (ten,ngaysinh,sdt,gioitinh,diachi,taikhoan,matkhau,active,roleId) values(N'" + ten +
-                              "','" + ngaysinh + "','" + sdt + "','" + gioitinh + "',N'" + quequan + "','" + username + "','" + password + "','" + active + "'," + quyen + ")";
+                            string sql = "Insert into HTUser (ten,ngaysinh,sdt,gioitinh,diachi,taikhoan,matkhau,active,roleId,email) values(N'" + ten +
+                              "','" + ngaysinh + "','" + sdt + "','" + gioitinh + "',N'" + quequan + "','" + username + "','" + password + "','" + active + "'," + quyen + ",'" +email+ "')";
                             conn.ExecuteNonQuery(sql);
                             MessageBox.Show("Tạo tài khoản thành công!", "Thông báo");
                         }
