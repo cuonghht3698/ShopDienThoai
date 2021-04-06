@@ -143,6 +143,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             panel.Controls.Add(lbMa);
             // label ma duoi
             lbMa1.Text = ma;
+            lbMa1.AutoSize = true;
             lbMa1.Click += (object s, EventArgs e) => { PickSanPham(Int32.Parse(ma), panel); };
             lbMa1.Location = lbSMa.Location;
             panel.Controls.Add(lbMa1);
@@ -159,7 +160,6 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             lbTen1.AutoSize = lbSten.AutoSize;
             lbTen1.Size = lbSten.Size;
             lbTen1.Click += (object s, EventArgs e) => { PickSanPham(Int32.Parse(ma), panel); };
-            lbTen1.AutoSize = lbSten.AutoSize;
             panel.Controls.Add(lbTen1);
 
             // label gia tre

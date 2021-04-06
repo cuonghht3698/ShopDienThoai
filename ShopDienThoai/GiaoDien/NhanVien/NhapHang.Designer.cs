@@ -239,7 +239,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.panelCon.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCon.Location = new System.Drawing.Point(0, 0);
             this.panelCon.Name = "panelCon";
-            this.panelCon.Size = new System.Drawing.Size(804, 63);
+            this.panelCon.Size = new System.Drawing.Size(804, 71);
             this.panelCon.TabIndex = 0;
             this.panelCon.Visible = false;
             // 
@@ -247,7 +247,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // 
             this.panelFooterMau.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelFooterMau.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooterMau.Location = new System.Drawing.Point(0, 53);
+            this.panelFooterMau.Location = new System.Drawing.Point(0, 61);
             this.panelFooterMau.Name = "panelFooterMau";
             this.panelFooterMau.Size = new System.Drawing.Size(804, 10);
             this.panelFooterMau.TabIndex = 7;
@@ -274,7 +274,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // 
             this.lbSten.Location = new System.Drawing.Point(82, 20);
             this.lbSten.Name = "lbSten";
-            this.lbSten.Size = new System.Drawing.Size(229, 33);
+            this.lbSten.Size = new System.Drawing.Size(229, 38);
             this.lbSten.TabIndex = 4;
             this.lbSten.Text = "IPHONE 12  PRO MAX ASDASD\r\n";
             // 
