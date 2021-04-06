@@ -143,7 +143,6 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             panel.Controls.Add(lbMa);
             // label ma duoi
             lbMa1.Text = ma;
-            lbMa1.Size = lbSMa.Size;
             lbMa1.Click += (object s, EventArgs e) => { PickSanPham(Int32.Parse(ma), panel); };
             lbMa1.Location = lbSMa.Location;
             panel.Controls.Add(lbMa1);
@@ -157,6 +156,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // label ten duoi
             lbTen1.Text = ten;
             lbTen1.Location = lbSten.Location;
+            lbTen1.AutoSize = lbSten.AutoSize;
             lbTen1.Size = lbSten.Size;
             lbTen1.Click += (object s, EventArgs e) => { PickSanPham(Int32.Parse(ma), panel); };
             lbTen1.AutoSize = lbSten.AutoSize;
@@ -294,7 +294,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
                 {
                     DatHang(Int32.Parse(item.Cells[2].Value.ToString()), Int32.Parse(item.Cells[5].Value.ToString()));
                 }
-                MessageBox.Show("Thêm sách thành công");
+                MessageBox.Show("Thêm sp thành công");
                 cn.ExecuteNonQuery("update phieu set trangthai = N'" + TrangThai.HoanThanh + "' where id =" + phieuId);
                 CheckPhieu();
                 getDataChon();
