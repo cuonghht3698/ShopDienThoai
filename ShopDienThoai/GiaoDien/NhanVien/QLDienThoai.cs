@@ -140,7 +140,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
                 "',[ngaynhap] = N'" + ngaynhap + "',[mota] = N'" + mota + "',[khoId] = " + khoId + ",[nccId] = " + nccId + ",[loaispId] = " + loaispId + ",[active] = '" + active + "'WHERE id = " + id + "";
             conn.ExecuteNonQuery(sql);
             var getId = conn.getDataTable("select top 1 id from sanpham where ten = N'" + ten + "' order by ngaynhap desc");
-            txtMa.Text = getId.Rows[0][0].ToString();
+            txtMa.Text = getId.Rows[0][0].ToString(); 
             GetSanPham();
             MessageBox.Show("Sửa thành công", "Thông báo");
         }
