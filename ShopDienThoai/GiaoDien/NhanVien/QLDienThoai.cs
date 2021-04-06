@@ -139,8 +139,6 @@ namespace ShopDienThoai.GiaoDien.NhanVien
                 "',[cpu] = N'" + cpu + "',[ram] = N'" + ram + "',[rom] = N'" + rom + "',[baohanh] = N'" + baohanh + "',[phukiendikem] = N'" + phukiendikem +
                 "',[ngaynhap] = N'" + ngaynhap + "',[mota] = N'" + mota + "',[khoId] = " + khoId + ",[nccId] = " + nccId + ",[loaispId] = " + loaispId + ",[active] = '" + active + "'WHERE id = " + id + "";
             conn.ExecuteNonQuery(sql);
-            var getId = conn.getDataTable("select top 1 id from sanpham where ten = N'" + ten + "' order by ngaynhap desc");
-            txtMa.Text = getId.Rows[0][0].ToString(); 
             GetSanPham();
             MessageBox.Show("Sửa thành công", "Thông báo");
         }
@@ -174,6 +172,8 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             danhgia = 0;
             string sql = @"INSERT INTO [dbo].[SanPham]([ten],[soluong],[gianhap],[giaban],[giaKM],[mausac],[manhinh],[camera],[cpu],[ram]  ,[rom]  ,[baohanh] ,[phukiendikem]  ,[ngaynhap]  ,[mota] ,[khoId] ,[nccId],[loaispId],[active],[luotxem],[danhgia]) VALUES
            (N'" + ten + "'," + soluong + "," + gianhap + " ," + giaban + "," + giaKM + ",N'" + mausac + "',N'" + manhinh + "',N'" + camera + "', N'" + cpu + "' , N'" + ram + "', N'" + rom + "', N'" + baohanh + "', N'" + phukiendikem + "', '" + ngaynhap + "',N'" + mota + "' ," + khoId + " ," + nccId + "," + loaispId + ",1," + luotxem + "," + danhgia + ")";
+            var getId = conn.getDataTable("select top 1 id from sanpham where ten = N'" + ten + "' order by ngaynhap desc");
+            txtMa.Text = getId.Rows[0][0].ToString();
             conn.ExecuteNonQuery(sql);
             GetSanPham();
            
