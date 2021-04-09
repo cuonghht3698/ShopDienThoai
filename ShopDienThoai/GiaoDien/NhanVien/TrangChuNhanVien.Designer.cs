@@ -32,7 +32,7 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrangChuNhanVien));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbTitle = new System.Windows.Forms.Label();
             this.lbTimeNow = new System.Windows.Forms.Label();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -75,7 +75,7 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lbTitle);
             this.panel1.Controls.Add(this.lbTimeNow);
             this.panel1.Controls.Add(this.iconButton3);
             this.panel1.Controls.Add(this.iconButton2);
@@ -90,17 +90,16 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.panel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDoubleClick);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
-            // label2
+            // lbTitle
             // 
-            this.label2.AllowDrop = true;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("PMingLiU-ExtB", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(439, 7);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 27);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Tên phần mềm";
-            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label2_MouseDown);
+            this.lbTitle.AllowDrop = true;
+            this.lbTitle.AutoSize = true;
+            this.lbTitle.Font = new System.Drawing.Font("PMingLiU-ExtB", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle.Location = new System.Drawing.Point(194, 7);
+            this.lbTitle.Name = "lbTitle";
+            this.lbTitle.Size = new System.Drawing.Size(0, 27);
+            this.lbTitle.TabIndex = 2;
+            this.lbTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label2_MouseDown);
             // 
             // lbTimeNow
             // 
@@ -263,6 +262,7 @@ namespace ShopQuanAo.GiaoDien.NhanVien
             this.iconButton11.TabIndex = 3;
             this.iconButton11.Text = "Xuất kho";
             this.iconButton11.UseVisualStyleBackColor = false;
+            this.iconButton11.Click += new System.EventHandler(this.iconButton11_Click);
             // 
             // iconButton12
             // 
@@ -554,7 +554,7 @@ namespace ShopQuanAo.GiaoDien.NhanVien
         private FontAwesome.Sharp.IconButton iconButton5;
         private System.Windows.Forms.Label lbTimeNow;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.Panel panelDropDown1;
         private FontAwesome.Sharp.IconButton iconButton7;
         private FontAwesome.Sharp.IconButton iconButton6;

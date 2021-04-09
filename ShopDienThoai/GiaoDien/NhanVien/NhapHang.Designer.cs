@@ -34,14 +34,12 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.label2 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnThem = new FontAwesome.Sharp.IconButton();
             this.label4 = new System.Windows.Forms.Label();
             this.lbten = new System.Windows.Forms.Label();
             this.lbloai = new System.Windows.Forms.Label();
             this.lbId = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panelPickSP = new System.Windows.Forms.Panel();
             this.panelCon = new System.Windows.Forms.Panel();
             this.panelFooterMau = new System.Windows.Forms.Panel();
@@ -100,9 +98,9 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(94, 21);
+            this.txtSearch.Location = new System.Drawing.Point(66, 21);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(804, 32);
+            this.txtSearch.Size = new System.Drawing.Size(935, 32);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -120,15 +118,6 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.dataGridView1.Size = new System.Drawing.Size(674, 225);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Chọn sản phẩm";
             // 
             // btnThem
             // 
@@ -180,7 +169,6 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.iconButton1);
             this.panel2.Controls.Add(this.panelPickSP);
             this.panel2.Controls.Add(this.lbtongchu);
             this.panel2.Controls.Add(this.iconButton3);
@@ -194,32 +182,19 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtSearch);
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1060, 673);
             this.panel2.TabIndex = 3;
             // 
-            // iconButton1
-            // 
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(904, 18);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(74, 35);
-            this.iconButton1.TabIndex = 3;
-            this.iconButton1.Text = "iconButton1";
-            this.iconButton1.UseVisualStyleBackColor = true;
-            // 
             // panelPickSP
             // 
             this.panelPickSP.AutoScroll = true;
             this.panelPickSP.Controls.Add(this.panelCon);
-            this.panelPickSP.Location = new System.Drawing.Point(94, 54);
+            this.panelPickSP.Location = new System.Drawing.Point(66, 54);
             this.panelPickSP.Name = "panelPickSP";
-            this.panelPickSP.Size = new System.Drawing.Size(804, 247);
+            this.panelPickSP.Size = new System.Drawing.Size(935, 247);
             this.panelPickSP.TabIndex = 38;
             // 
             // panelCon
@@ -239,7 +214,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.panelCon.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCon.Location = new System.Drawing.Point(0, 0);
             this.panelCon.Name = "panelCon";
-            this.panelCon.Size = new System.Drawing.Size(804, 71);
+            this.panelCon.Size = new System.Drawing.Size(935, 71);
             this.panelCon.TabIndex = 0;
             this.panelCon.Visible = false;
             // 
@@ -249,13 +224,13 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.panelFooterMau.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFooterMau.Location = new System.Drawing.Point(0, 61);
             this.panelFooterMau.Name = "panelFooterMau";
-            this.panelFooterMau.Size = new System.Drawing.Size(804, 10);
+            this.panelFooterMau.Size = new System.Drawing.Size(935, 10);
             this.panelFooterMau.TabIndex = 7;
             // 
             // lbSsl
             // 
             this.lbSsl.AutoSize = true;
-            this.lbSsl.Location = new System.Drawing.Point(411, 27);
+            this.lbSsl.Location = new System.Drawing.Point(579, 27);
             this.lbSsl.Name = "lbSsl";
             this.lbSsl.Size = new System.Drawing.Size(43, 13);
             this.lbSsl.TabIndex = 6;
@@ -264,7 +239,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // lbSgia
             // 
             this.lbSgia.AutoSize = true;
-            this.lbSgia.Location = new System.Drawing.Point(317, 27);
+            this.lbSgia.Location = new System.Drawing.Point(464, 27);
             this.lbSgia.Name = "lbSgia";
             this.lbSgia.Size = new System.Drawing.Size(43, 13);
             this.lbSgia.TabIndex = 5;
@@ -274,7 +249,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // 
             this.lbSten.Location = new System.Drawing.Point(82, 20);
             this.lbSten.Name = "lbSten";
-            this.lbSten.Size = new System.Drawing.Size(229, 38);
+            this.lbSten.Size = new System.Drawing.Size(341, 38);
             this.lbSten.TabIndex = 4;
             this.lbSten.Text = "IPHONE 12  PRO MAX ASDASD\r\n";
             // 
@@ -290,7 +265,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // picSanh1
             // 
             this.picSanh1.Image = ((System.Drawing.Image)(resources.GetObject("picSanh1.Image")));
-            this.picSanh1.Location = new System.Drawing.Point(661, 0);
+            this.picSanh1.Location = new System.Drawing.Point(804, 0);
             this.picSanh1.Name = "picSanh1";
             this.picSanh1.Size = new System.Drawing.Size(62, 52);
             this.picSanh1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -300,7 +275,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // lbAnh
             // 
             this.lbAnh.AutoSize = true;
-            this.lbAnh.Location = new System.Drawing.Point(629, 4);
+            this.lbAnh.Location = new System.Drawing.Point(772, 4);
             this.lbAnh.Name = "lbAnh";
             this.lbAnh.Size = new System.Drawing.Size(26, 13);
             this.lbAnh.TabIndex = 1;
@@ -309,7 +284,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // lbSLTren
             // 
             this.lbSLTren.AutoSize = true;
-            this.lbSLTren.Location = new System.Drawing.Point(411, 4);
+            this.lbSLTren.Location = new System.Drawing.Point(579, 4);
             this.lbSLTren.Name = "lbSLTren";
             this.lbSLTren.Size = new System.Drawing.Size(67, 13);
             this.lbSLTren.TabIndex = 0;
@@ -318,7 +293,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // lbGiaNhapTren
             // 
             this.lbGiaNhapTren.AutoSize = true;
-            this.lbGiaNhapTren.Location = new System.Drawing.Point(317, 4);
+            this.lbGiaNhapTren.Location = new System.Drawing.Point(464, 4);
             this.lbGiaNhapTren.Name = "lbGiaNhapTren";
             this.lbGiaNhapTren.Size = new System.Drawing.Size(50, 13);
             this.lbGiaNhapTren.TabIndex = 0;
@@ -543,14 +518,12 @@ namespace ShopDienThoai.GiaoDien.NhanVien
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton btnThem;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbten;
         private System.Windows.Forms.Label lbloai;
         private System.Windows.Forms.Label lbId;
         private System.Windows.Forms.Panel panel2;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.Panel panelPickSP;
         private System.Windows.Forms.Panel panelCon;
         private System.Windows.Forms.Label lbSsl;

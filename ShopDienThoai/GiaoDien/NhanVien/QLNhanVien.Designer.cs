@@ -75,20 +75,20 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // 
             // panel2
             // 
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.panel4);
-            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
             // dataGridView1
             // 
+            resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
@@ -96,23 +96,23 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // 
             // panel4
             // 
+            resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Controls.Add(this.cbTrangThai);
             this.panel4.Controls.Add(this.label13);
             this.panel4.Controls.Add(this.cbSearchChucVu);
             this.panel4.Controls.Add(this.label12);
             this.panel4.Controls.Add(this.label10);
             this.panel4.Controls.Add(this.txtSearch);
-            resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
             // 
             // cbTrangThai
             // 
+            resources.ApplyResources(this.cbTrangThai, "cbTrangThai");
             this.cbTrangThai.FormattingEnabled = true;
             this.cbTrangThai.Items.AddRange(new object[] {
             resources.GetString("cbTrangThai.Items"),
             resources.GetString("cbTrangThai.Items1"),
             resources.GetString("cbTrangThai.Items2")});
-            resources.ApplyResources(this.cbTrangThai, "cbTrangThai");
             this.cbTrangThai.Name = "cbTrangThai";
             this.cbTrangThai.SelectedIndexChanged += new System.EventHandler(this.cbTrangThai_SelectedIndexChanged);
             // 
@@ -123,8 +123,8 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // 
             // cbSearchChucVu
             // 
-            this.cbSearchChucVu.FormattingEnabled = true;
             resources.ApplyResources(this.cbSearchChucVu, "cbSearchChucVu");
+            this.cbSearchChucVu.FormattingEnabled = true;
             this.cbSearchChucVu.Name = "cbSearchChucVu";
             this.cbSearchChucVu.SelectedIndexChanged += new System.EventHandler(this.cbSearchChucVu_SelectedIndexChanged);
             // 
@@ -142,6 +142,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // 
             resources.ApplyResources(this.txtSearch, "txtSearch");
             this.txtSearch.Name = "txtSearch";
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // cbGioiTinh
             // 
@@ -249,6 +250,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.cbGioiTinh);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.cbQuyen);
@@ -269,7 +271,6 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.groupBox1.Controls.Add(this.txtSdt);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtMa);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
@@ -280,46 +281,47 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // 
             // iconButton3
             // 
+            resources.ApplyResources(this.iconButton3, "iconButton3");
             this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton3.IconColor = System.Drawing.Color.Black;
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            resources.ApplyResources(this.iconButton3, "iconButton3");
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.UseVisualStyleBackColor = true;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
             // 
             // iconButton2
             // 
+            resources.ApplyResources(this.iconButton2, "iconButton2");
             this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton2.IconColor = System.Drawing.Color.Black;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            resources.ApplyResources(this.iconButton2, "iconButton2");
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.UseVisualStyleBackColor = true;
             this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // iconButton1
             // 
+            resources.ApplyResources(this.iconButton1, "iconButton1");
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            resources.ApplyResources(this.iconButton1, "iconButton1");
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // panel3
             // 
+            resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Controls.Add(this.iconButton3);
             this.panel3.Controls.Add(this.iconButton2);
             this.panel3.Controls.Add(this.iconButton1);
-            resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.groupBox1);
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // QLNhanVien

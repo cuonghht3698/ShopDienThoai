@@ -134,27 +134,28 @@ namespace ShopQuanAo.GiaoDien.NhanVien
         private void iconButton6_Click(object sender, EventArgs e)
         {
             OpenForm(new QLDienThoai());
+            lbTitle.Text = "Quản lý điện thoại";
         }
 
         private void iconButton9_Click(object sender, EventArgs e)
         {
-            OpenForm(new QLKho());
+            lbTitle.Text = "Quản lý kho"; OpenForm(new QLKho());
         }
 
         private void iconButton8_Click(object sender, EventArgs e)
         {
-            OpenForm(new QLNhaCungCap());
+            lbTitle.Text = "Quản lý nhà cung cấp"; OpenForm(new QLNhaCungCap());
         }
 
         private void iconButton17_Click(object sender, EventArgs e)
         {
-            OpenForm(new QLLoaiSanPham());
+            lbTitle.Text = "Loại sản phẩm"; OpenForm(new QLLoaiSanPham());
 
         }
 
         private void iconButton15_Click(object sender, EventArgs e)
         {
-            OpenForm(new QLNhanVien());
+            lbTitle.Text = "Quản lý nhân viên"; OpenForm(new QLNhanVien());
         }
 
         private void iconButton14_Click(object sender, EventArgs e)
@@ -177,18 +178,23 @@ namespace ShopQuanAo.GiaoDien.NhanVien
 
         private void iconButton7_Click(object sender, EventArgs e)
         {
-            OpenForm(new QLDonHang());
+            lbTitle.Text = "Quản lý đơn hàng";OpenForm(new QLDonHang());
         }
 
         private void iconButton12_Click(object sender, EventArgs e)
         {
-            OpenForm(new NhapHang());
+            lbTitle.Text = "Nhập kho"; OpenForm(new NhapHang());
             
         }
 
         private void iconButton18_Click(object sender, EventArgs e)
         {
-            OpenForm(new TonKho());
+            lbTitle.Text = "Báo cáo tồn kho"; OpenForm(new TonKho());
+        }
+
+        private void iconButton11_Click(object sender, EventArgs e)
+        {
+            lbTitle.Text = "Xuất kho";
         }
     }
 }

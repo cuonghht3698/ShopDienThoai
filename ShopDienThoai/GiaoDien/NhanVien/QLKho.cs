@@ -111,5 +111,13 @@ namespace ShopDienThoai.GiaoDien.NhanVien
 
             }
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            txtMa.Text = "";
+            txtDiaChi.Text = "";
+            txtTen.Text = "";
+
+        }
     }
 }

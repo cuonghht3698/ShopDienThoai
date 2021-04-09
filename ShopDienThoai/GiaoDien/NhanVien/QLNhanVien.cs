@@ -16,8 +16,8 @@ namespace ShopDienThoai.GiaoDien.NhanVien
     {
         private getData cn;
         private string sSearch;
-        private string sRole;
-        private bool sTrangThai;
+        private int sRole;
+        private int sTrangThai;
         public QLNhanVien()
         {
             InitializeComponent();
@@ -26,11 +26,11 @@ namespace ShopDienThoai.GiaoDien.NhanVien
 
         private void QLNhanVien_Load(object sender, EventArgs e)
         {
-
+            cbSearchChucVu.Items.Add("-- Lọc theo quyền");
             cbQuyen.SelectedIndex = 0;
             cbGioiTinh.SelectedIndex = 0;
             getQuyen();
-            cbSearchChucVu.Items.Add("-- Lọc theo quyền");
+            
             cbSearchChucVu.SelectedIndex = 0;
             cbTrangThai.SelectedIndex = 1;
             getDataNhanVien();
@@ -39,23 +39,29 @@ namespace ShopDienThoai.GiaoDien.NhanVien
         private void getDataNhanVien()
         {
             sSearch = txtSearch.Text;
-            sRole = cbSearchChucVu.SelectedItem.ToString();
+            if (cbTrangThai.SelectedIndex == 0)
+            {
+                sTrangThai = 2;
+            }
+            else if(cbTrangThai.SelectedIndex == 1)
+            {
+                sTrangThai = 1;
+            }
+            else
+            {
+                sTrangThai = 0;
+            }
+            if (cbSearchChucVu.SelectedIndex == 0)
+            {
+                sRole = 0;
+            }
+            else
+            {
+                sRole = Ham.GetIdFromCombobox(cbSearchChucVu.SelectedItem.ToString());
+            }
 
-            string where = "";
-            if (!String.IsNullOrEmpty(sSearch))
-            {
-                where = " and ( ten like '%" + sSearch + "%')";
-            }
-            if (cbSearchChucVu.SelectedIndex != 0)
-            {
-                where += " and quyen like '%" + sRole + "%'";
-            }
-            if (cbTrangThai.SelectedIndex != 0)
-            {
-                where += " and active = '" + sTrangThai + "'";
-            }
             DataTable tb = cn.getDataTable("select u.id,u.ten,u.ngaysinh,u.sdt,u.gioitinh,u.diachi,u.taikhoan,u.active,(convert(varchar,u.roleId) + ' -' + r.ten) as 'Quyền' from HTUser u " +
-                "join HTRole r on u.roleId = r.id");
+                "join HTRole r on u.roleId = r.id where ("+sTrangThai+" = 2 or u.active = "+sTrangThai+") and ("+sRole+" = 0 or u.roleid = "+ sRole + ")");
             dataGridView1.DataSource = tb;
         }
 
@@ -108,20 +114,20 @@ namespace ShopDienThoai.GiaoDien.NhanVien
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.ColumnIndex == 0 && e.RowIndex != -1)
-            {
-                var confirmResult = MessageBox.Show("Bạn có muốn xóa ??",
-                                     "Cảnh báo!!",
-                                     MessageBoxButtons.YesNo);
-                if (confirmResult == DialogResult.Yes)
-                {
-                    int id = Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
+            //if (e.ColumnIndex == 0 && e.RowIndex != -1)
+            //{
+            //    //var confirmResult = MessageBox.Show("Bạn có muốn xóa ??",
+            //    //                     "Cảnh báo!!",
+            //    //                     MessageBoxButtons.YesNo);
+            //    //if (confirmResult == DialogResult.Yes)
+            //    //{
+            //    //    //int id = Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
 
-                }
+            //    //}
 
-            }
-            else if (e.RowIndex != -1)
-            {
+            //}
+            //else if (e.RowIndex != -1)
+            //{
                 txtMa.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 txtTen.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 if (!String.IsNullOrEmpty(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString()))
@@ -137,7 +143,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
                 checkActive.Checked = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString() == "True" ? true : false;
                 Console.WriteLine(checkActive.Checked);
                 cbQuyen.SelectedItem = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
-            }
+            //}
         }
 
         private void cbSearchChucVu_SelectedIndexChanged(object sender, EventArgs e)
@@ -153,7 +159,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
 
         private void cbTrangThai_SelectedIndexChanged(object sender, EventArgs e)
         {
-            sTrangThai = cbTrangThai.SelectedIndex == 1 ? true : false;
+          
             getDataNhanVien();
         }
 
@@ -161,6 +167,23 @@ namespace ShopDienThoai.GiaoDien.NhanVien
         {
             DangKy dk = new DangKy(true);
             dk.ShowDialog();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            getDataNhanVien();
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            foreach (Control x in groupBox1.Controls)
+            {
+                if (x is TextBox)
+                {
+                    ((TextBox)x).Text = String.Empty;
+                }
+            }
+
         }
     }
 }

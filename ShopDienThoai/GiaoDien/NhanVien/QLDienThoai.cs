@@ -342,6 +342,38 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             GetSanPham();
         }
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            foreach (Control x in groupBox1.Controls)
+            {
+                if (x is TextBox)
+                {
+                    ((TextBox)x).Text = String.Empty;
+                }
+            }
+            foreach (Control x in groupBox2.Controls)
+            {
+                if (x is TextBox)
+                {
+                    ((TextBox)x).Text = String.Empty;
+                }
+            }
+            foreach (Control x in groupBox3.Controls)
+            {
+                if (x is TextBox)
+                {
+                    ((TextBox)x).Text = String.Empty;
+                }
+            }
+            picAnh1.Image = null;
+            picAnh2.Image = null;
+            cbKho.SelectedIndex = 0;
+            cbNCC.SelectedIndex = 0;
+            cbLoai.SelectedIndex = 0;
+
+
+        }
+
         private void picAnh2_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog dlg = new OpenFileDialog())
@@ -370,7 +402,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("Sai kiểu dữ liệu", "Lỗi");
             }
         }
     }

@@ -29,14 +29,17 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             getTonKho();
             comboBox1.SelectedIndex = 0;
             lbKho.Text = PageIndex.ToString();
+            dataGridView1.Columns[0].Width = 40;
+            dataGridView1.Columns[1].Width = 40;
+
         }
 
         private void getTonKho()
         {
-           var data = cn.getDataTable("select ROW_NUMBER() OVER(order by s.ten) as 'STT',s.id as 'Mã', " +
+           var data = cn.getDataTable("select ROW_NUMBER() OVER(order by s.ten) as STT,s.id as 'Mã', " +
                 "s.ten,s.soluong as 'Số lượng tồn',s.gianhap as 'Giá nhập',s.giaban as 'Giá bán',k.ten as 'Kho' from sanpham s" +
                 " join kho k on s.khoId = k.id where ('" + search + "' = '' or s.ten like N'%" + search + "%') " +
-                "ORDER BY s.soluong OFFSET " + (PageIndex - 1) * PageSize + " ROWS FETCH NEXT " + PageSize + " ROWS ONLY");
+                "ORDER BY STT OFFSET " + (PageIndex - 1) * PageSize + " ROWS FETCH NEXT " + PageSize + " ROWS ONLY");
                 dataGridView1.DataSource = data;
         }
 

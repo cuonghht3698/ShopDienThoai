@@ -150,6 +150,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.btnClear.TabIndex = 111;
             this.btnClear.Text = "Hủy";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSua
             // 
@@ -628,6 +629,7 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             // 
             // txtMa
             // 
+            this.txtMa.Enabled = false;
             this.txtMa.Location = new System.Drawing.Point(72, 25);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(101, 20);
