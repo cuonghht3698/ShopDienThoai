@@ -477,9 +477,9 @@ namespace ShopDienThoai.GiaoDien.NhanVien
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(279, 28);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 13);
+            this.label11.Size = new System.Drawing.Size(54, 13);
             this.label11.TabIndex = 0;
-            this.label11.Text = "Loại sách";
+            this.label11.Text = "Loại hàng";
             // 
             // label10
             // 

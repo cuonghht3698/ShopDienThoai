@@ -212,7 +212,7 @@ namespace ShopQuanAo.Public
             catch (Exception)
             {
 
-                throw;
+                return "";
             }
         }
 
